@@ -45,3 +45,11 @@
 .bg-light{
   background-color: #EEEEEE !important;
 }
+
+.green{
+  color: var(--elect-green);
+}
+
+.pink{
+  color: var(--right-pink);
+}
