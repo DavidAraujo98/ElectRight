@@ -42,14 +42,32 @@
   }
 }
 
+body {
+  color: #666666;
+  font-weight: 300;
+}
+
 .bg-light{
   background-color: #EEEEEE !important;
 }
 
 .green{
-  color: var(--elect-green);
+  color: var(--elect-green) !important;
 }
 
 .pink{
-  color: var(--right-pink);
+  color: var(--right-pink) !important;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6{
+  font-weight: 300;
+  color: var(--elect-green);
+}
+
+.nav-link{
+  color: var(--elect-green) !important;
+}
+
+.navbar-nav .nav-link.active, .navbar-nav .show>.nav-link{
+  font-weight: bold;
 }
