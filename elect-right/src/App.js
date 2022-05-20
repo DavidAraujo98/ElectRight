@@ -23,10 +23,11 @@ function App() {
             <Route exact path="/editor">
               <Editor />
             </Route>
-            
+            {/*
             <Route exact path="/">
               <Home />
             </Route>
+            */}
           </Switch>
         </div>
       </div>
