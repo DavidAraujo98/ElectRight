@@ -1,11 +1,10 @@
-const Proposals = ({id, title, original, altered, proponentList, referenceDoc, imageList }) => {
+const Proposals = ({ id, num, title, original, altered, proponentList, referenceDoc, imageList}) => {
     
-    const inputTitle = {
+    const input = {
         textAlign: "left",
         border: "none",
         outline: "none",
         boxShadow: "none",
-        fontSize: "26pt",
     };
 
     const card = {
@@ -16,12 +15,13 @@ const Proposals = ({id, title, original, altered, proponentList, referenceDoc, i
     return (
         <form>
             <div class="text-start my-3 px-1">
-                <input type="text" id="title" placeholder="New title" class="form-control pink" style={inputTitle}/>
+                <div class="input-group d-flex align-items-center">
+                    <h3 class="py-0 my-0" >Proposal {num}</h3>
+                    <input type="text" id="title" placeholder="New title" class="form-control pink fs-2 my-0 py-0" style={input}/>
+                </div>
                 <div class="card border-0" style={card}>
                     <div class="card-body">
-                        <div class="card-text">
-                            Bye
-                        </div>
+                        <textarea type="text" id="title" placeholder="Original version" class="form-control pink my-0 py-0" style={input}/>
                     </div>
                 </div>
             </div>

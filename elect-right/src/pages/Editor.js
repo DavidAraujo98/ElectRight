@@ -19,6 +19,7 @@ const Editor = () => {
                 {proposals.map((proposals) => (
                     <Proposal
                         id={proposals.id}
+                        num={proposals.num}
                         title={proposals.title}
                         original={proposals.original}
                         altered={proposals.altered}
