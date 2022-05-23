@@ -1,5 +1,5 @@
 import React from 'react';
-import Proposal from '../components/Proposal'
+import Proposal from '../components/ProposalForm'
 import { useState } from 'react';
 
 const Editor = () => {
@@ -17,16 +17,7 @@ const Editor = () => {
         <div style={centerBody}>
             <div>
                 {proposals.map((proposals) => (
-                    <Proposal
-                        id={proposals.id}
-                        num={proposals.num}
-                        title={proposals.title}
-                        original={proposals.original}
-                        altered={proposals.altered}
-                        proponentList={proposals.proponentList}
-                        referenceDoc={proposals.referenceDoc}
-                        imageList={proposals.imageList}
-                    />
+                    <Proposal />
                 ))}
             </div>
         </div>
