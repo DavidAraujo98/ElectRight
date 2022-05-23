@@ -3,7 +3,8 @@ import React from 'react'
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Editor from './pages/Editor';
-import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+
 
 function App() {
   return (
@@ -11,24 +12,14 @@ function App() {
       <div className="App">
         <Navbar username="John Doe" img_src='./assets/user-solid.svg' />
         <div className="Content">
-          <Switch>
+          <Routes>
             {/*
-            <Route exact path="/login">
-              <Login />
-            </Route>
-            <Route exact path="/signup">
-              <SignUp />
-            </Route>
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
             */}
-            <Route exact path="/editor">
-              <Editor />
-            </Route>
-            {/*
-            <Route exact path="/">
-              <Home />
-            </Route>
-            */}
-          </Switch>
+            <Route path="/editor" element={<Editor/>} />
+            <Route path="/" element={<Home />} />
+          </Routes>
         </div>
       </div>
     </Router>

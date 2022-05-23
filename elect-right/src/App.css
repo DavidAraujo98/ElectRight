@@ -65,6 +65,7 @@ body {
 }
 
 .nav-link{
+  font-weight: 300;
   color: var(--elect-green) !important;
 }
 
