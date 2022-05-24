@@ -3,7 +3,7 @@ import Title from './Title';
 
 const Navbar = ({ username, img_src }) => {
     return ( 
-        <nav class="navbar fixed-top navbar-expand-lg bg-light py-1">
+        <nav class="navbar navbar-static-top navbar-expand-lg bg-light py-1">
             <div class="container-fluid justify-content-between">
                 <a class="navbar-brand p-0 m-0" href='/'><Title size={30} /></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
