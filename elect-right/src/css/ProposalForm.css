@@ -1,0 +1,57 @@
+@import "App.css";
+
+input {
+    text-align: left !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.card {
+    color: white;
+    background-color: var(--elect-green);
+}
+
+.card-body textarea {
+    background-color: rgba(255,255,255,0.2);
+    color: white !important;
+    border: dashed;
+}
+
+.form-control:focus {
+    background-color: rgba(255,255,255,0.2);
+}
+
+.border-new{
+    border-color: var(--right-pink) !important;
+}
+
+.border-old{
+    border-color: white !important;
+}
+
+.file {
+    color: white;
+    background-color: rgba(255,255,255,0.2);
+}
+
+.btn {
+    color: white;
+    font-weight: inherit;
+}
+
+.btn:hover{
+    color: var(--right-pink)
+}
+
+.fa-solid{
+    color: var(--right-pink)
+}
+
+.area-pink{
+    color: var(--right-pink);
+    border-style: dashed;
+    border-width: 2pt;
+    border-radius: 0.5pt;
+    background-color: #E91D6320;
+}

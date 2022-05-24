@@ -9,7 +9,7 @@ const Editor = () => {
 
     const centerBody = {
         marginTop: "10px",
-        marginInline: "25vw",
+        marginInline: "10vw 20vw",
         writingMode: "horizontal-tb",
     }
 
