@@ -1,57 +1,63 @@
 @import "App.css";
 
-input {
+input{
     text-align: left !important;
     border: none !important;
     outline: none !important;
     box-shadow: none !important;
 }
 
-.card {
+form .card {
     color: white;
     background-color: var(--elect-green);
 }
 
-.card-body textarea {
+form .card-body .input {
     background-color: rgba(255,255,255,0.2);
     color: white !important;
     border: dashed;
 }
 
-.form-control:focus {
+form .form-control:focus {
     background-color: rgba(255,255,255,0.2);
 }
 
-.border-new{
+form .border-new{
     border-color: var(--right-pink) !important;
 }
 
-.border-old{
+form .border-old{
     border-color: white !important;
 }
 
-.file {
+form .file {
     color: white;
     background-color: rgba(255,255,255,0.2);
 }
 
-.btn {
+form .btn {
     color: white;
     font-weight: inherit;
 }
 
-.btn:hover{
+form .btn {
     color: var(--right-pink)
 }
 
-.fa-solid{
+form .btn:hover {
+    color: white
+}
+
+form .fa-solid{
     color: var(--right-pink)
 }
 
-.area-pink{
-    color: var(--right-pink);
-    border-style: dashed;
-    border-width: 2pt;
-    border-radius: 0.5pt;
-    background-color: #E91D6320;
+form .highlight-new {
+    color: white;
+    background-color: blue;
+}
+
+form .highlight-old {
+    color: white;
+    background-color: red;
 }
