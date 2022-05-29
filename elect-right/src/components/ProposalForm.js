@@ -1,31 +1,23 @@
-import '../css/ProposalForm.css'
+import '../css/ProposalForm.css';
 
 const Proposals = ({ id }) => {
     
     const differenceCheck = (e) => {
-        var oldText = document.getElementById(id + "old").innerHTML;
-        var newText = document.getElementById(id + "new").innerHTML;
-    
-        
-        var text = '';
+        var oldText = document.getElementById(id + "old").textContent;
+        var newText = document.getElementById(id + "new").textContent;
+        var diff1 = "";
+        var diff2 = "";
         newText.split('').forEach(function(val, i){
-            if (val != oldText.charAt(i))
-            text += "<span class='highlight-new'>"+val+"</span>";  
-            else
-            text += val;            
+            if (val != oldText.charAt(i)) {
+                diff1 += "<b class='highlight-new'>" + val + "</b>";
+                diff2 += "<b class='highlight-old'>" + oldText.charAt(i) + "</b>";
+            } else {
+                diff1 += val;
+                diff2 += oldText.charAt(i);
+            }
         });
-        document.getElementById(id + "new").innerHTML = text; 
-
-        {/*
-        text = '';
-        oldText.split('').forEach(function(val, i){
-            if (val != newText.charAt(i))
-            text += "<span class='highlight-old'>"+val+"</span>";  
-            else
-            text += val;            
-        });
-        document.getElementById(id+"new").innerHTML = text; 
-        */}
+        document.getElementById(id + "new").innerHTML = diff1.concat(newText.substring(diff1.length));
+        document.getElementById(id + "old").innerHTML = diff2.concat(oldText.substring(diff1.length));
     };
 
     return (
