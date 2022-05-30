@@ -96,3 +96,13 @@ body {
 .area-green:hover{
   background-color: #0090AC10 !important;
 }
+
+.btn.btn-elect{
+  color: var(--elect-green) !important;
+  background-color: #E91D63 !important;
+}
+
+.btn.btn-elect:hover{
+  color: var(--elect-green) !important;
+  background-color: #E91D6380 !important;
+}

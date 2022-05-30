@@ -41,11 +41,11 @@ form .btn {
 }
 
 form .btn {
-    color: var(--right-pink)
+    color: white;
 }
 
 form .btn:hover {
-    color: white
+    color: var(--right-pink);
 }
 
 form .fa-solid{
@@ -60,4 +60,8 @@ form .highlight-new {
 form .highlight-old {
     color: white;
     background-color: red;
+}
+
+form .btn .icon:hover {
+    color: var(--elect-green);
 }
