@@ -1,26 +1,6 @@
 import '../css/ProposalForm.css';
 
 const Proposals = ({ id }) => {
-    
-    const differenceCheck = (e) => {
-        var oldText = document.getElementById(id + "old").textContent.split(" ");
-        var newText = document.getElementById(id + "new").textContent;
-        var diff1 = "";
-        var diff2 = "";
-        var i = 0;
-        newText.split(" ").forEach(function(val){
-            if (val != oldText[i]) {
-                diff1 += "<b class='highlight-new'>" + val + "</b>";
-                diff2 += "<b class='highlight-old'>" + oldText[i] + "</b>";
-            } else {
-                diff1 += val;
-                diff2 += oldText[i];
-            }
-            i += 1;
-        });
-        document.getElementById(id + "new").innerHTML = diff1.concat(newText.substring(i));
-        document.getElementById(id + "old").innerHTML = diff2.concat(oldText.substring(i));
-    };
 
     return (
         <form id={id} class="my-5">
@@ -33,12 +13,12 @@ const Proposals = ({ id }) => {
                     <div class="card p-3 border-0">
                         <div class="card-body">
                             <label for={id + "old"} class="form-label">Original version</label>
-                            <span id={id + "old"} class="input form-control border-old" role="textbox" contentEditable onFocus={e => differenceCheck()}></span>
+                            <span id={id + "old"} class="input form-control border-old" role="textbox" contentEditable></span>
                         </div>
                         <i class="mx-auto fa-solid fa-arrow-down fa-2x"></i>
                         <div class="card-body">
                             <label for={id + "new"} class="form-label">New version</label>
-                            <span  id={id + "new"} class="input form-control border-new" role="textbox" contentEditable onFocus={e => differenceCheck()}></span>
+                            <span  id={id + "new"} class="input form-control border-new" role="textbox" contentEditable></span>
                         </div>
                         <div class="row m-2 align-items-end">
                             <div class="col">
