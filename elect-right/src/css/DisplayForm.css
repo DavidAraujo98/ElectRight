@@ -1,0 +1,125 @@
+@import "App.css";
+
+.button-1 {
+  background-color: #E91D63;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-1:hover,
+.button-1:focus {
+  background-color: #ea4c71;
+}
+
+.card {
+    color: white;
+    background-color: var(--elect-green);
+}
+
+.card-declaration {
+    background-color: white;
+}
+
+.card-body div {
+    background-color: rgba(255,255,255,0.2);
+    color: white !important;
+    border: dashed;
+    text-align: left;
+}
+
+.border-true{
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    appearance: none;
+    border-radius: 0.375rem;
+}
+
+.border-new{
+    border-color: var(--right-pink) !important;
+}
+
+.border-old{
+    border-color: white !important;
+}
+
+.fa-solid{
+    color: var(--right-pink)
+}
+
+.prop-title div{
+    padding: 0.375rem 0.75rem;
+    font-weight: 400;
+    text-align: left !important;
+}
+
+.user-img i{
+    float: right;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.user-img{
+    text-align: right !important;
+    margin-right: 15px;
+}
+
+.form-title{
+    color: #0090AC;
+    font-size: 50px;
+    font-weight: 400;
+}
+
+.form-title p{
+    color: grey;
+    font-size: 30px;
+    font-weight: 200;
+}
+
+.form-title p span{
+    color: grey;
+    font-size: 30px;
+    font-weight: 200;
+}
+
+.less-pink{
+    color: #fe406d;
+    font-size: 30px;
+    font-weight: 300;
+}
+
+.info{
+    color: var(--elect-green);
+    text-align: left;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.info span{
+    font-size: 20px;
+    font-weight: 350;
+    font-style: italic;
+}
