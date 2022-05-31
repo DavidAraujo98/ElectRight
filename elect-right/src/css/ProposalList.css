@@ -1,6 +1,6 @@
 @import "App.css";
 
-input{
+form input{
     text-align: left !important;
     border: none !important;
     outline: none !important;
@@ -12,10 +12,18 @@ form .card {
     background-color: var(--elect-green);
 }
 
+form .btn {
+    color: var(--right-pink);
+}
+
+form .btn:hover {
+    color: var(--right-pink);
+}
+
 form .card-body .input {
     background-color: rgba(255,255,255,0.2);
     color: white !important;
-    border: dashed;
+    border: solid;
 }
 
 form .form-control:focus {
@@ -33,23 +41,6 @@ form .border-old{
 form .file {
     color: white;
     background-color: rgba(255,255,255,0.2);
-}
-
-form .btn {
-    color: white;
-    font-weight: inherit;
-}
-
-form .btn {
-    color: white;
-}
-
-form .btn:hover {
-    color: var(--right-pink);
-}
-
-form .fa-solid{
-    color: var(--right-pink)
 }
 
 form .highlight-new {

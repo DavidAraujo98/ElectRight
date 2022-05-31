@@ -1,12 +1,46 @@
 {
-  "posts": [
+  "profile": {
+    "id": 1234321,
+    "name": "John Doe"
+  },
+  "election": [
     {
-      "id": 1653955650480,
-      "title": "",
-      "old_": "",
-      "new_": "",
-      "proponents": [],
-      "images": []
+      "id": 1,
+      "startDate": "startDate",
+      "endDate": "endDate",
+      "proposals": [
+        {
+          "id": 123123123,
+          "title": 1231231,
+          "old_": "Hello World",
+          "new_": "Goodbye World",
+          "proponents": [],
+          "images": []
+        },
+        {
+          "id": 123123123,
+          "title": 1231231,
+          "old_": "Hello World",
+          "new_": "Goodbye World",
+          "proponents": [],
+          "images": []
+        }
+      ],
+      "voters": [
+        {
+          "id": 123,
+          "name": "Ana"
+        },
+        {
+          "id": 124,
+          "name": "Barbara"
+        },
+        {
+          "id": 125,
+          "name": "Carlos"
+        }
+      ]
     }
-  ]
+  ],
+  "friends": []
 }
