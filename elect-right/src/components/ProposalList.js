@@ -19,7 +19,7 @@ const ProposalsList = ({proposals, deleteProposal, editProposal}) => {
         var proposal = proposals.filter(proposal => proposal.id == id);
         var i = proposals.indexOf(proposal);
         proposal[0][field] = value;
-        editProposal(proposal, i)
+        editProposal(proposal[0], i)
     }
 
 
