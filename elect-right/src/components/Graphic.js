@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
 const Graphic = ({elect, users}) => {
+
     return (
-        <div>
-        </div>
+        <dic></dic>
     );
 }
 

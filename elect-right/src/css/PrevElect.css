@@ -1,0 +1,16 @@
+:root{
+    --right-pink: #E91D63;
+    --elect-green: #0090AC;
+}
+
+.prevElect h1{
+    font-size: calc(1.2452rem + 1.2345vw);
+    color: var(--right-pink);
+
+}
+
+.prevElect button.prevElectbtn{
+    background: var(--elect-green);
+    color: #fff;
+
+}

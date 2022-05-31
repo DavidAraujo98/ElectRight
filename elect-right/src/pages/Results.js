@@ -1,9 +1,9 @@
 import Graphic from "../components/Graphic";
-import React from "@types/react";
+import React from "react";
 import ButtonUser from "../components/ButtonUser";
 import {BrowserRouter as useParams} from "react-router-dom";
 
-const Results = () => {
+const Results = ({users, elect}) => {
     
     const {code, name} = useParams();
 
