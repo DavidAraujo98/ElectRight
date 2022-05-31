@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../css/selectElect.css';
+import '../css/SelectElect.css';
 
 const SelectElect = ({ email}) => {
 

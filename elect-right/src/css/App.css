@@ -75,9 +75,6 @@ body {
 
 .area-pink{
   color: var(--right-pink) !important;
-  border-style: dashed;
-  border-width: 2pt;
-  border-radius: 0.5pt;
   background-color: #E91D6330 !important;
 }
 
@@ -87,9 +84,6 @@ body {
 
 .area-green{
   color: var(--elect-green) !important;
-  border-style: dashed;
-  border-width: 2pt;
-  border-radius: 0.5pt;
   background-color: #0090AC30 !important;
 }
 
@@ -97,12 +91,26 @@ body {
   background-color: #0090AC10 !important;
 }
 
-.btn.btn-elect{
+.btn{
+  border: none;
+}
+
+.btn.btn-right{
   color: var(--elect-green) !important;
-  background-color: #E91D63 !important;
+  background-color: var(--right-pink) !important;
+}
+
+.btn.btn-right:hover{
+  color: var(--elect-green) !important;
+  background-color: #E91D6380 !important;
+}
+
+.btn.btn-elect{
+  color: var(--right-pink) !important;
+  background-color: var(--elect-green) !important;
 }
 
 .btn.btn-elect:hover{
-  color: var(--elect-green) !important;
-  background-color: #E91D6380 !important;
+  color: var(--right-pink) !important;
+  background-color: #0090AC80 !important;
 }
