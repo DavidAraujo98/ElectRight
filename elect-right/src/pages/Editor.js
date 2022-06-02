@@ -1,4 +1,5 @@
 import React from "react";
+import cloneDeep from "lodash/cloneDeep";
 import ProposalList from "../components/ProposalList";
 import VotersModal from "../components/VotersModal";
 import { useState, useEffect } from "react";
@@ -24,7 +25,6 @@ const Editor = () => {
                 })
                 .then((data) => {
                     setElection(data);
-                    
                 });
         }
         console.log(election);
@@ -38,7 +38,7 @@ const Editor = () => {
     };
 
     const electionTitle = (e) => {
-        var temp = election;
+        var temp = cloneDeep(election);
         temp.title = e.target.value;
         setElection(temp);
         console.log(election)
@@ -53,19 +53,21 @@ const Editor = () => {
             proponents: [],
             images: [],
         };
-        let temp = Object.assign({}, election);
+        var temp = cloneDeep(election);
         temp.proposals = temp.proposals.concat(proposal);
         setElection(temp);
     };
 
     const deleteProposal = (id) => {
-        election.proposals = election.proposals.filter(
+        var temp = cloneDeep(election);
+        temp.proposals = temp.proposals.filter(
             (proposal) => proposal.id !== id
         );
-        setElection(election);
+        console.log(temp)
+        setElection(temp);
     };
 
-    const editProposal = (proposal, i) => {};
+    const editProposal = (new_proposal) => {};
 
     const votersSelection = () => {};
 
@@ -77,9 +79,8 @@ const Editor = () => {
                     onChange={(e) => electionTitle(e.target.value)}
                     type="text"
                     id="title"
-                    placeholder="Proposal title"
-                    className="form-control pink fs-2 p-0"
-                    focused
+                    placeholder="Election title"
+                    className="form-control pink fs-1 p-0 border border-0 border-bottom text-center shadow-none my-5"
                 />
             </div>
             <div className="editor my-4">
@@ -102,7 +103,7 @@ const Editor = () => {
             </div>
             {/* File */}
             <div
-                className="card btn area-pink rounded border-0"
+                className="card btn area-pink rounded border-0 my-5"
                 onClick={addProposal}
             >
                 <span className="my-1">
@@ -110,7 +111,7 @@ const Editor = () => {
                 </span>
                 <h5 className="m-0 mt-1"> Upload document </h5>
             </div>
-            <div className="d-grid gap-2 d-md-block fixed-bottom position-static m-3">
+            <div className="d-grid gap-2 d-md-block fixed-bottom position-static my-5">
                 {election && election.proposals && (
                     <VotersModal
                         active={election.proposals}
