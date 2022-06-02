@@ -96,7 +96,7 @@ body {
 }
 
 .btn.btn-right{
-  color: var(--elect-green) !important;
+  color:white;
   background-color: var(--right-pink) !important;
 }
 
@@ -106,7 +106,7 @@ body {
 }
 
 .btn.btn-elect{
-  color: var(--right-pink) !important;
+  color: white;
   background-color: var(--elect-green) !important;
 }
 

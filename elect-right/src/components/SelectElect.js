@@ -37,7 +37,7 @@ const SelectElect = ({ email}) => {
                     onClick={handleClick}
                     onChange={(e) => setElectCode(e.target.value)}/>
                 <div>
-                    <button class='btn rounded-pill'>Access</button>
+                    <button class='btn btn-elect rounded-pill'>Access</button>
                 </div>
             </form>
         </div>

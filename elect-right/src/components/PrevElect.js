@@ -45,7 +45,7 @@ const PrevElect = ({electsori, email}) => {
                     <th class="btn" onClick={(e) => handleClick(e,'president')}>As President</th>
                     <th class="btn" onClick={(e) => handleClick(e,'secretary')}>As Secretary</th>
                     <th className="Blank"></th>
-                    <td className='newElect' onClick={buttonClick}><button class="btn prevElectbtn rounded-pill px-4">+ New Election</button>
+                    <td className='newElect' onClick={buttonClick}><button class="btn btn-elect rounded-pill px-4">+ New Election</button>
                     </td>
                 </tr>
                 {elects.map((elect) => (

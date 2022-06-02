@@ -8,7 +8,7 @@ const Title = ({ size }) => {
 
     return (
         <div>
-            <h1 style={title}><span class="green">Elect</span><span class="pink">Right</span></ h1>
+            <h1 style={title}><span className="green">Elect</span><span className="pink">Right</span></ h1>
         </div>
     );
 }

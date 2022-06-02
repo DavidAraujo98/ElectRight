@@ -6,6 +6,7 @@
   "election": [
     {
       "id": 1,
+      "title": "",
       "startDate": "startDate",
       "endDate": "endDate",
       "proposals": [
