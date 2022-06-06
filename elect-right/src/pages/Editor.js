@@ -1,13 +1,9 @@
-import React from "react";
+import * as React from "react";
 import cloneDeep from "lodash/cloneDeep";
 import ProposalList from "../components/ProposalList";
 import VotersModal from "../components/VotersModal";
 import { useState, useEffect } from "react";
 import "../css/Editor.css";
-import TextField from "@mui/material/TextField";
-import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 
 const Editor = () => {
     const [election, setElection] = useState({
@@ -18,7 +14,6 @@ const Editor = () => {
         proposals: [],
         voters: [],
     });
-    const [time, setTime] = React.useState(new Date());
     const url = "https://localhost:5000/election/";
 
     useEffect(() => {
@@ -44,8 +39,8 @@ const Editor = () => {
     const electionTitle = (e) => {
         var temp = cloneDeep(election);
         temp.title = e.target.value;
-        setElection(temp); 
-    }
+        setElection(temp);
+    };
 
     const addProposal = (e) => {
         var proposal = {
@@ -75,6 +70,18 @@ const Editor = () => {
         setElection(temp);
     };
 
+    const setStartTime = (e) => {
+        var temp = cloneDeep(election);
+        temp.startDate = e.target.value;
+        setElection(temp);
+    };
+
+    const setEndTime = (e) => {
+        var temp = cloneDeep(election);
+        temp.endDate = e.target.value;
+        setElection(temp);
+    }
+
     const votersSelection = () => {};
 
     return (
@@ -88,17 +95,29 @@ const Editor = () => {
                     placeholder="Election title"
                     className="form-control pink fs-1 p-0 border border-0 border-bottom text-center shadow-none my-5"
                 />
-                <div class="row justify-content-center">
-                <LocalizationProvider dateAdapter={AdapterDateFns}>
-                    <DateTimePicker
-                        renderInput={(props) => <TextField {...props} />}
-                        label="DateTimePicker"
-                        value={time}
-                        onChange={(newValue) => {
-                            setTime(newValue);
-                        }}
-                    />
-                </LocalizationProvider>
+                <div className="row">
+                    <div className="col m-1">
+                        <label className="row-1" for="start">
+                            Start time
+                        </label>
+                        <input
+                            type="datetime-local"
+                            id="start"
+                            class="row-1 border border-pink rounded-pill px-2 m-2 green"
+                            onBlur={setStartTime}
+                        />
+                    </div>
+                    <div className="col m-1">
+                        <label className="row-1" for="end">
+                            End time
+                        </label>
+                        <input
+                            type="datetime-local"
+                            id="end"
+                            class="row-1 border border-pink rounded-pill px-2 m-2 pink"
+                            onBlur={setEndTime}
+                        />
+                    </div>
                 </div>
             </div>
             <div className="editor my-4">

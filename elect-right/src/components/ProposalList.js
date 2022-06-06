@@ -29,21 +29,28 @@ const ProposalsList = ({proposals, deleteProposal, editProposal}) => {
                         {/* Main Form */}
                         <div className="row-8 text-start my-5">
                             <div className="row align-items-center mx-auto">
-                                <div className="col-11 ps-0 me-auto">
-                                    <input
-                                        value={proposals.title}
-                                        onChange={(e) =>
+                                <div className="col-11 ps-0 me-auto m-1">
+                                    <label
+                                        htmlFor="title"
+                                        className="form-label"
+                                    >
+                                        Title
+                                    </label>
+                                    <span
+                                        onBlur={(e) =>
                                             handleChange(
                                                 "title",
-                                                e.target.value,
+                                                e.target.innerText,
                                                 proposal.id
                                             )
                                         }
-                                        type="text"
                                         id="title"
-                                        placeholder="Proposal title"
-                                        className="form-control pink fs-2 p-0"
-                                    />
+                                        className="input border border-2 border-top-0 border-start-0 border-end-0 shadow-none form-control pink fs-2 p-0"
+                                        role="textbox"
+                                        contentEditable
+                                    >
+                                        {proposal.title}
+                                    </span>
                                 </div>
                                 <div
                                     className="col ms-auto px-0 btn border-0"
@@ -66,7 +73,7 @@ const ProposalsList = ({proposals, deleteProposal, editProposal}) => {
                                             )
                                         }
                                         id="old"
-                                        className="input form-control border border-1 border-old"
+                                        className="input form-control border border-1"
                                         role="textbox"
                                         contentEditable
                                     >
@@ -114,7 +121,7 @@ const ProposalsList = ({proposals, deleteProposal, editProposal}) => {
                                         + Add proponent
                                         <i className="fa-solid fa-circle-user fa-xl"></i>
                                     </span>
-                                </div> 
+                                </div>
                             </div>
                         </div>
                     </div>
