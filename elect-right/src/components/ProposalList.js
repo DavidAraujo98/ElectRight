@@ -1,9 +1,6 @@
-import { useState } from 'react';
 import '../css/ProposalList.css';
 
 const ProposalsList = ({proposals, deleteProposal, editProposal}) => {
-
-    const [images, setImages] = useState([]);
 
     /*
     const addImages = e => {
@@ -90,7 +87,7 @@ const ProposalsList = ({proposals, deleteProposal, editProposal}) => {
                                             )
                                         }
                                         id="new"
-                                        className="input form-control border border-1 border-new"
+                                        className="input form-control border border-1"
                                         role="textbox"
                                         contentEditable
                                     >
@@ -117,8 +114,7 @@ const ProposalsList = ({proposals, deleteProposal, editProposal}) => {
                                         + Add proponent
                                         <i className="fa-solid fa-circle-user fa-xl"></i>
                                     </span>
-                                </div>
-                                <div className="row">{images}</div>
+                                </div> 
                             </div>
                         </div>
                     </div>

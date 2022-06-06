@@ -7,10 +7,16 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Results from "./pages/Results";
 
 function App() {
+  const links = [
+    { name: "Home", path: "/" },
+    { name: "Editor", path: "/editor" },
+    { name: "Profile", path: "/profile"}
+  ]
+
   return (
     <Router>
       <div className="App">
-        <Navbar username="John Doe" img_src='./assets/user-solid.svg' />
+        <Navbar username="John Doe" img_src='./assets/user-solid.svg' links={links} />
         <div className="Content">
           <Routes>
             {/*

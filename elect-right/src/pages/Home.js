@@ -15,7 +15,6 @@ const Home = ({email}) => {
     return (
         <div className="home">
             <div className="selectElect">
-
                 <SelectElect email={email} />
             </div>
             <div className="prevElect" >

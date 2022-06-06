@@ -4,16 +4,21 @@ import ProposalList from "../components/ProposalList";
 import VotersModal from "../components/VotersModal";
 import { useState, useEffect } from "react";
 import "../css/Editor.css";
+import TextField from "@mui/material/TextField";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 
 const Editor = () => {
     const [election, setElection] = useState({
         id: new Date().getTime() + 1,
-        title: null,
-        startDate: null,
-        endDate: null,
+        title: "",
+        startDate: "",
+        endDate: "",
         proposals: [],
         voters: [],
     });
+    const [time, setTime] = React.useState(new Date());
     const url = "https://localhost:5000/election/";
 
     useEffect(() => {
@@ -27,7 +32,6 @@ const Editor = () => {
                     setElection(data);
                 });
         }
-        console.log(election);
     }, []);
 
     const centerBody = {
@@ -40,8 +44,7 @@ const Editor = () => {
     const electionTitle = (e) => {
         var temp = cloneDeep(election);
         temp.title = e.target.value;
-        setElection(temp);
-        console.log(election)
+        setElection(temp); 
     }
 
     const addProposal = (e) => {
@@ -63,11 +66,14 @@ const Editor = () => {
         temp.proposals = temp.proposals.filter(
             (proposal) => proposal.id !== id
         );
-        console.log(temp)
         setElection(temp);
     };
 
-    const editProposal = (new_proposal) => {};
+    const editProposal = (new_proposal, index) => {
+        var temp = cloneDeep(election);
+        temp.proposals[index] = new_proposal;
+        setElection(temp);
+    };
 
     const votersSelection = () => {};
 
@@ -76,12 +82,24 @@ const Editor = () => {
             <div>
                 <input
                     value={election.title}
-                    onChange={(e) => electionTitle(e.target.value)}
+                    onChange={electionTitle}
                     type="text"
                     id="title"
                     placeholder="Election title"
                     className="form-control pink fs-1 p-0 border border-0 border-bottom text-center shadow-none my-5"
                 />
+                <div class="row justify-content-center">
+                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                    <DateTimePicker
+                        renderInput={(props) => <TextField {...props} />}
+                        label="DateTimePicker"
+                        value={time}
+                        onChange={(newValue) => {
+                            setTime(newValue);
+                        }}
+                    />
+                </LocalizationProvider>
+                </div>
             </div>
             <div className="editor my-4">
                 {election && election.proposals && (
