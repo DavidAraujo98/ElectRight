@@ -100,6 +100,11 @@ body {
   background-color: var(--right-pink) !important;
 }
 
+.btn.btn-right.active{
+  color: var(--elect-green) !important;
+  background-color: #E91D6380 !important;
+}
+
 .btn.btn-right:hover{
   color: var(--elect-green) !important;
   background-color: #E91D6380 !important;
@@ -111,6 +116,11 @@ body {
 }
 
 .btn.btn-elect:hover{
+  color: var(--right-pink) !important;
+  background-color: #0090AC80 !important;
+}
+
+.btn.btn-elect.active{
   color: var(--right-pink) !important;
   background-color: #0090AC80 !important;
 }

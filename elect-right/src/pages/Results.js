@@ -1,6 +1,5 @@
 import Graphic from "../components/Graphic";
 import React from "react";
-import ButtonUser from "../components/ButtonUser";
 import {BrowserRouter as useParams} from "react-router-dom";
 
 const Results = ({users, elect}) => {
@@ -20,9 +19,6 @@ const Results = ({users, elect}) => {
                 </col>
                 <col>
                     <h4>Votes</h4>
-                    {users.map((user) => (
-                        <ButtonUser user={user} />
-                    ))}
                 </col>
             </div>
         </div>

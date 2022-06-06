@@ -14,19 +14,29 @@ const Editor = () => {
         proposals: [],
         voters: [],
     });
-    const url = "https://localhost:5000/election/";
+    const [friends, setFriends] = useState(null)
+    const election_url = "http://localhost:5000/election/";
+    const friends_url = "http://localhost:5000/friends/";
 
     useEffect(() => {
         if (new URLSearchParams(window.location.search).get("id") != null) {
             var id = new URLSearchParams(window.location.search).get("id");
-            fetch(url + id)
+            fetch(election_url + id)
                 .then((res) => {
                     return res.json();
                 })
                 .then((data) => {
                     setElection(data);
                 });
-        }
+        } else {
+            fetch(friends_url)
+                .then((res) => {
+                    return res.json();
+                })
+                .then((data) => {
+                    setFriends(data);
+                })
+        } 
     }, []);
 
     const centerBody = {
@@ -82,7 +92,11 @@ const Editor = () => {
         setElection(temp);
     }
 
-    const votersSelection = () => {};
+    const addVoters = (voters) => {
+        var temp = cloneDeep(election);
+        temp.voters = voters;
+        setElection(temp);
+    };
 
     return (
         <div style={centerBody}>
@@ -93,28 +107,28 @@ const Editor = () => {
                     type="text"
                     id="title"
                     placeholder="Election title"
-                    className="form-control pink fs-1 p-0 border border-0 border-bottom text-center shadow-none my-5"
+                    className="form-control shadow-none pink fs-1 p-0 border border-0 border-bottom text-center my-5"
                 />
                 <div className="row">
-                    <div className="col m-1">
-                        <label className="row-1" for="start">
+                    <div className="col m-1 ">
+                        <label className="row-1" htmlFor="start">
                             Start time
                         </label>
                         <input
                             type="datetime-local"
                             id="start"
-                            class="row-1 border border-pink rounded-pill px-2 m-2 green"
+                            className="shadow-sm row-1 border border-pink rounded-pill px-2 m-2 green"
                             onBlur={setStartTime}
                         />
                     </div>
                     <div className="col m-1">
-                        <label className="row-1" for="end">
+                        <label className="row-1" htmlFor="end">
                             End time
                         </label>
                         <input
                             type="datetime-local"
                             id="end"
-                            class="row-1 border border-pink rounded-pill px-2 m-2 pink"
+                            className="shadow-sm row-1 border border-pink rounded-pill px-2 m-2 pink"
                             onBlur={setEndTime}
                         />
                     </div>
@@ -129,7 +143,7 @@ const Editor = () => {
                     />
                 )}
                 <div
-                    className="card btn area-green rounded border-0"
+                    className="card btn shadow area-green rounded border-0"
                     onClick={addProposal}
                 >
                     <span className="my-1">
@@ -140,7 +154,7 @@ const Editor = () => {
             </div>
             {/* File */}
             <div
-                className="card btn area-pink rounded border-0 my-5"
+                className="card btn shadow area-pink rounded border-0 my-5"
                 onClick={addProposal}
             >
                 <span className="my-1">
@@ -149,10 +163,10 @@ const Editor = () => {
                 <h5 className="m-0 mt-1"> Upload document </h5>
             </div>
             <div className="d-grid gap-2 d-md-block fixed-bottom position-static my-5">
-                {election && election.proposals && (
+                {election && election.proposals.length > 0 && friends && (
                     <VotersModal
-                        active={election.proposals}
-                        votersSelection={votersSelection}
+                        addVoters={addVoters}
+                        voters={friends}
                     />
                 )}
             </div>

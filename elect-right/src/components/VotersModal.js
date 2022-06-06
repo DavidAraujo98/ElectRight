@@ -1,9 +1,36 @@
-const VotersModal = ({ votersSelection }) => {
+import { useState } from "react";
+
+const VotersModal = ({ voters, addVoters }) => {
+
+    const [voterList, setVoters] = useState([])
+    const [fltr, setFilter] = useState(voters);
+
+    const addUser = (id) => {
+        var temp = voterList;
+        temp = temp.filter((voter) => voter.id !== id);
+        if (temp.length < voterList.length) {
+            setVoters(temp);
+        } else {
+            setVoters(
+                voterList.concat(voters.filter((voter) => voter.id === id))
+            );
+        }
+    };
+
+    const filterSearch = (search) => {
+        setFilter(
+            voters.filter(
+                (voter) =>
+                    voter.name.toLowerCase().substring(0, search.length) ===
+                    search.toLowerCase()
+            )
+        );
+    }
+
     return (
         <div>
             <button
-                onClick={() => votersSelection()}
-                className="btn btn-elect rounded-pill px-4"
+                className="btn btn-elect shadow rounded-pill px-4 "
                 data-bs-toggle="modal"
                 data-bs-target="#exampleModal"
             >
@@ -36,14 +63,24 @@ const VotersModal = ({ votersSelection }) => {
                                     type="search"
                                     placeholder="Search"
                                     aria-label="Search"
+                                    onChange={(e) =>
+                                        filterSearch(e.target.value)
+                                    }
                                 />
-                                <button
-                                    className="btn btn-elect rounded-pill"
-                                    type="submit"
-                                >
-                                    Search
-                                </button>
                             </form>
+                        </div>
+                        <div className="m-auto mb-2">
+                            {fltr.map((voter) => (
+                                <a
+                                    id={voter.id}
+                                    className="btn btn-elect rounded-pill m-1 py-auto px-3 text-decoration-none"
+                                    data-bs-toggle="button"
+                                    onClick={() => addUser(voter.id)}
+                                >
+                                    {/*<img src={user.pic}/> */}
+                                    <p className="fs-5 m-auto">{voter.name}</p>
+                                </a>
+                            ))}
                         </div>
                         <div className="modal-footer">
                             <button
@@ -56,6 +93,7 @@ const VotersModal = ({ votersSelection }) => {
                             <button
                                 type="button"
                                 className="btn btn-elect rounded-pill"
+                                onClick={() => addVoters(voterList)}
                             >
                                 Save changes
                             </button>

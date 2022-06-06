@@ -45,7 +45,7 @@ const ProposalsList = ({proposals, deleteProposal, editProposal}) => {
                                             )
                                         }
                                         id="title"
-                                        className="input border border-2 border-top-0 border-start-0 border-end-0 shadow-none form-control pink fs-2 p-0"
+                                        className="input form-control border border-2 border-top-0 border-start-0 border-end-0 shadow-none pink fs-2 p-0"
                                         role="textbox"
                                         contentEditable
                                     >
@@ -59,7 +59,7 @@ const ProposalsList = ({proposals, deleteProposal, editProposal}) => {
                                     <i className="fa-solid fa-trash-can icon"></i>
                                 </div>
                             </div>
-                            <div className="card border-0 p-2">
+                            <div className="card border-0 p-2 shadow-lg">
                                 <div className="card-body py-1">
                                     <label htmlFor="old" className="form-label">
                                         Original version

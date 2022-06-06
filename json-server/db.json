@@ -4,44 +4,47 @@
     "name": "John Doe"
   },
   "election": [
-    {
-      "id": 1,
-      "title": "",
-      "startDate": "startDate",
-      "endDate": "endDate",
-      "proposals": [
-        {
-          "id": 123123123,
-          "title": 1231231,
-          "old_": "Hello World",
-          "new_": "Goodbye World",
-          "proponents": [],
-          "images": []
-        },
-        {
-          "id": 123123123,
-          "title": 1231231,
-          "old_": "Hello World",
-          "new_": "Goodbye World",
-          "proponents": [],
-          "images": []
-        }
-      ],
-      "voters": [
-        {
-          "id": 123,
-          "name": "Ana"
-        },
-        {
-          "id": 124,
-          "name": "Barbara"
-        },
-        {
-          "id": 125,
-          "name": "Carlos"
-        }
-      ]
-    }
   ],
-  "friends": []
+  "friends": [
+    {
+      "id": 123,
+      "name": "Ana"
+    },
+    {
+      "id": 132,
+      "name": "Antonio"
+    },
+    {
+      "id": 124,
+      "name": "Barbara"
+    },
+    {
+      "id": 125,
+      "name": "Carlos"
+    },
+    {
+      "id": 126,
+      "name": "Daniel"
+    },
+    {
+      "id": 127,
+      "name": "Emanuel"
+    },
+    {
+      "id": 128,
+      "name": "Filipa"
+    },
+    {
+      "id": 129,
+      "name": "Gustavo"
+    },
+    {
+      "id": 130,
+      "name": "Helena"
+    },
+    {
+      "id": 131,
+      "name": "Inês"
+    }
+  ]
 }
