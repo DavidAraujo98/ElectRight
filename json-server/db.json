@@ -1,9 +1,45 @@
 {
   "profile": {
-    "id": 1234321,
+    "id": 1234,
     "name": "John Doe"
   },
   "election": [
+    {
+      "id": 1654559110029,
+      "title": "Test Election",
+      "startDate": "2022-06-07T00:45",
+      "endDate": "2022-06-07T00:50",
+      "proposals": [
+        {
+          "id": 1654559129939,
+          "title": "Hello World",
+          "old_": "What a nice day",
+          "new_": "What a nice evening",
+          "images": []
+        },
+        {
+          "id": 1654559129940,
+          "title": "Goodbye World",
+          "old_": "Sleep well",
+          "new_": "Have good dreams",
+          "images": []
+        }
+      ],
+      "voters": [
+        {
+          "id": 123,
+          "name": "Ana"
+        },
+        {
+          "id": 124,
+          "name": "Barbara"
+        },
+        {
+          "id": 1234,
+          "name": "John Doe"
+        }
+      ]
+    }
   ],
   "friends": [
     {

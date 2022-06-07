@@ -1,30 +1,40 @@
 import { useState } from "react";
+import { isEqual } from "lodash";
+import UserToast from "./UserToast";
 
-const VotersModal = ({ voters, addVoters }) => {
+const VotersModal = ({ friends, voters, addVoters }) => {
+    const [voterList, setVoter] = useState(voters);
+    const [fltr, setFilter] = useState(friends);
 
-    const [voterList, setVoters] = useState([])
-    const [fltr, setFilter] = useState(voters);
-
-    const addUser = (id) => {
+    const addUser = (id, active) => {
         var temp = voterList;
         temp = temp.filter((voter) => voter.id !== id);
         if (temp.length < voterList.length) {
-            setVoters(temp);
+            setVoter(temp);
         } else {
-            setVoters(
-                voterList.concat(voters.filter((voter) => voter.id === id))
+            setVoter(
+                voterList.concat(friends.filter((voter) => voter.id === id))
             );
         }
     };
 
     const filterSearch = (search) => {
         setFilter(
-            voters.filter(
+            friends.filter(
                 (voter) =>
                     voter.name.toLowerCase().substring(0, search.length) ===
                     search.toLowerCase()
             )
         );
+    };
+
+    const exists = (voter) => {
+        voterList.forEach((existing) => {
+            if (isEqual(voter, existing)) {
+                return true;
+            }
+        })
+        return false
     }
 
     return (
@@ -47,7 +57,7 @@ const VotersModal = ({ voters, addVoters }) => {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h3 className="modal-title" id="exampleModalLabel">
-                                Add Voters
+                                Add friends
                             </h3>
                             <button
                                 type="button"
@@ -71,15 +81,11 @@ const VotersModal = ({ voters, addVoters }) => {
                         </div>
                         <div className="m-auto mb-2">
                             {fltr.map((voter) => (
-                                <a
-                                    id={voter.id}
-                                    className="btn btn-elect rounded-pill m-1 py-auto px-3 text-decoration-none"
-                                    data-bs-toggle="button"
-                                    onClick={() => addUser(voter.id)}
-                                >
-                                    {/*<img src={user.pic}/> */}
-                                    <p className="fs-5 m-auto">{voter.name}</p>
-                                </a>
+                                <UserToast
+                                    user={voter}
+                                    addUser={addUser}
+                                    active={exists(voter)}
+                                />
                             ))}
                         </div>
                         <div className="modal-footer">
@@ -95,7 +101,7 @@ const VotersModal = ({ voters, addVoters }) => {
                                 className="btn btn-elect rounded-pill"
                                 onClick={() => addVoters(voterList)}
                             >
-                                Save changes
+                                Create ballot
                             </button>
                         </div>
                     </div>

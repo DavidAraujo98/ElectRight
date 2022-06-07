@@ -15,7 +15,10 @@ const Editor = () => {
         voters: [],
     });
     const [friends, setFriends] = useState(null)
-    const election_url = "http://localhost:5000/election/";
+    const [method, setMethod] = useState("POST");
+    const [election_url, setElectionUrl] = useState(
+        "http://localhost:5000/election/"
+    );
     const friends_url = "http://localhost:5000/friends/";
 
     useEffect(() => {
@@ -27,16 +30,18 @@ const Editor = () => {
                 })
                 .then((data) => {
                     setElection(data);
+                    setMethod("PUT");
+                    setElectionUrl(election_url + data.id);
                 });
-        } else {
-            fetch(friends_url)
-                .then((res) => {
-                    return res.json();
-                })
-                .then((data) => {
-                    setFriends(data);
-                })
-        } 
+            
+        }
+        fetch(friends_url)
+            .then((res) => {
+                return res.json();
+            })
+            .then((data) => {
+                setFriends(data);
+            })
     }, []);
 
     const centerBody = {
@@ -58,7 +63,6 @@ const Editor = () => {
             title: "",
             old_: "",
             new_: "",
-            proponents: [],
             images: [],
         };
         var temp = cloneDeep(election);
@@ -96,6 +100,15 @@ const Editor = () => {
         var temp = cloneDeep(election);
         temp.voters = voters;
         setElection(temp);
+        fetch(election_url, {
+            method: method,
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(temp),
+        }).then((data) => {
+            console.log("Ballot added");
+        });
     };
 
     return (
@@ -116,6 +129,7 @@ const Editor = () => {
                         </label>
                         <input
                             type="datetime-local"
+                            value={election.startTime}
                             id="start"
                             className="shadow-sm row-1 border border-pink rounded-pill px-2 m-2 green"
                             onBlur={setStartTime}
@@ -127,6 +141,7 @@ const Editor = () => {
                         </label>
                         <input
                             type="datetime-local"
+                            value={election.endTime}
                             id="end"
                             className="shadow-sm row-1 border border-pink rounded-pill px-2 m-2 pink"
                             onBlur={setEndTime}
@@ -164,10 +179,7 @@ const Editor = () => {
             </div>
             <div className="d-grid gap-2 d-md-block fixed-bottom position-static my-5">
                 {election && election.proposals.length > 0 && friends && (
-                    <VotersModal
-                        addVoters={addVoters}
-                        voters={friends}
-                    />
+                    <VotersModal addVoters={addVoters} voters={election.voters} friends={friends} />
                 )}
             </div>
         </div>

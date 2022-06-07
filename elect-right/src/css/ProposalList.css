@@ -7,6 +7,8 @@ form input{
     box-shadow: none !important;
 }
 
+
+
 form .card {
     color: white;
     background-color: var(--elect-green);

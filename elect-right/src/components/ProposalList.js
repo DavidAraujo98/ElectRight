@@ -117,10 +117,6 @@ const ProposalsList = ({proposals, deleteProposal, editProposal}) => {
                                             /*onChange={addImages}*/ multiple
                                         />
                                     </div>
-                                    <span className="col btn border-0 fs-xl text-end">
-                                        + Add proponent
-                                        <i className="fa-solid fa-circle-user fa-xl"></i>
-                                    </span>
                                 </div>
                             </div>
                         </div>

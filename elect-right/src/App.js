@@ -3,6 +3,7 @@ import React from 'react'
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Editor from './pages/Editor';
+import Ballot from './pages/Ballot';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Results from "./pages/Results";
 
@@ -10,7 +11,7 @@ function App() {
   const links = [
     { name: "Home", path: "/" },
     { name: "Editor", path: "/editor" },
-    { name: "Profile", path: "/profile"}
+    { name: "Profile", path: "/profile" }
   ]
 
   return (
@@ -27,7 +28,7 @@ function App() {
             <Route path="/editor" element={<Editor/>} />
             <Route path="/" element={<Home email={ 'joeDoe@gmail.com'}/>} />
             <Route path="/results" element={<Results />} />
-
+            <Route path="/ballot" element={<Ballot />} />
           </Routes>
         </div>
       </div>
