@@ -1,9 +1,15 @@
 import React from 'react';
-import {Doughnut} from 'react-chartjs-2'; // npm install chart.js react-chartjs-2
+import {Doughnut} from 'react-chartjs-2'; // npm install react-chartjs-2
 
 
-const Graphic = ({users}) => {
-    const data = {
+const Graphic = ({users, idProp}) => {
+
+    const nVotesTrue = users.votes.filter(voter => (voter.id === idProp && voter.value === true)).length;
+    const nVotesFalse = users.votes.filter(voter => (voter.id === idProp && voter.value === false)).length;
+    const nVotes = users.length;
+    console.log(nVotesTrue*100/nVotes);
+
+    {/* const data = {
         labels: ['Accept', 'Declined'],
         datasets: [
             {
@@ -12,7 +18,7 @@ const Graphic = ({users}) => {
                 title: {
                     text: "Customer Satisfaction"
                 },
-                data: [300 , 400],
+                data: [(nVotesTrue*100/nVotes) , (nVotesFalse*100/nVotes)],
                 backgroundColor: [
                     'rgba(54, 162, 235, 0.5)',
                     'rgba(54, 162, 235, 0.2)',
@@ -24,13 +30,11 @@ const Graphic = ({users}) => {
                 borderWidth: 1,
             },
         ],
-    };
+    }; */}
 
     return (
         <dic>
-
-            <Doughnut data={data}/>
-
+            {/*     <Doughnut data={data}/> */}
         </dic>
     );
 }
