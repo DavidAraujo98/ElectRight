@@ -23,7 +23,7 @@ const SelectElect = ({ email}) => {
     }
 
     return(
-        <div className="select-elect">
+        <div className="select-elect" >
             <form onSubmit={handleSumit}>
                 <h1>Election taking place?</h1>
                 {/* <h2>Want to vote?</h2> */}

@@ -11,7 +11,9 @@ function App() {
   const links = [
     { name: "Home", path: "/" },
     { name: "Editor", path: "/editor" },
-    { name: "Profile", path: "/profile" }
+    { name: "Profile", path: "/profile" },
+    { name: "Results", path: "/results" },
+
   ]
 
   return (

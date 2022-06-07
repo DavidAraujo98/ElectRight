@@ -30,63 +30,43 @@ const PrevElect = ({electsori, email}) => {
     }
 
 
-    return (
-        <div className="prevElect" align="left">
-            <h1 className="fs-1">Previous elections</h1>
-            <table className="table">
-                <tr>
-                    <th
-                        className="btn btn-default"
-                        onClick={(e) => handleClick(e, "all")}
-                    >
-                        All
+    return(
+
+        <div className="prevElect" align="left" >
+            <h1 class="fs-1">Previous elections</h1>
+            <table class="table" >
+                <tr >
+                    <th class="btn btn-default" onClick={(e) => handleClick(e,'all')}>All
+
+
                     </th>
-                    <th
-                        className="btn"
-                        onClick={(e) => handleClick(e, "type", "Secret")}
-                    >
-                        Secret
-                    </th>
-                    <th
-                        className="btn"
-                        onClick={(e) => handleClick(e, "type", "Public")}
-                    >
-                        Public
-                    </th>
-                    <th
-                        className="btn"
-                        onClick={(e) => handleClick(e, "president")}
-                    >
-                        As President
-                    </th>
-                    <th
-                        className="btn"
-                        onClick={(e) => handleClick(e, "secretary")}
-                    >
-                        As Secretary
-                    </th>
+                    <th class="btn" onClick={(e) => handleClick(e,'type', 'Secret')}>Secret</th>
+                    <th class="btn" onClick={(e) => handleClick(e,'type', 'Public')}>Public</th>
+                    <th class="btn" onClick={(e) => handleClick(e,'president')}>As President</th>
+                    <th class="btn" onClick={(e) => handleClick(e,'secretary')}>As Secretary</th>
                     <th className="Blank"></th>
-                    <td className="newElect" onClick={buttonClick}>
-                        <button className="btn btn-elect rounded-pill px-4">
-                            + New Election
-                        </button>
+                    <td className='newElect' onClick={buttonClick}><button class="btn btn-elect rounded-pill px-4">+ New Election</button>
                     </td>
                 </tr>
                 {elects.map((elect) => (
-                    <tr
-                        className="table-active elect-preview"
-                        key={elect.id}
-                        onClick={(e) => GoToElect(e, elect.code)}
-                    >
-                        <td className="table-active">{elect.name}</td>
-                        <td className="table-active">{elect.data}</td>
-                        <td className="table-active">{elect.votes}</td>
-                        <td className="table-active">{elect.code}</td>
+                    <tr class="table-active" className="elect-preview" key={elect.id} onClick={(e)=>GoToElect(e,elect.code)}>
+                        <td class="table-active">
+                            {elect.name}
+                        </td>
+                        <td class="table-active">
+                            {elect.data}
+                        </td>
+                        <td class="table-active">
+                            {elect.votes}
+                        </td>
+                        <td class="table-active">
+                            {elect.code}
+                        </td>
                     </tr>
                 ))}
             </table>
         </div>
-    );
+    )
 }
 
 export default PrevElect;
