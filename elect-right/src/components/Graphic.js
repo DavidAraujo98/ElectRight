@@ -1,5 +1,5 @@
 import React from 'react';
-import {Doughnut} from 'react-chartjs-2'; // npm install react-chartjs-2
+import {Doughnut} from 'react-chartjs-2'; // npm install chart.js react-chartjs-2
 
 
 const Graphic = ({users}) => {

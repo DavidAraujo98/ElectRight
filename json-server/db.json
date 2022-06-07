@@ -40,11 +40,11 @@
           "votes": [
             {
               "id": 1654559129939,
-              "value": false
+              "value": true
             },
             {
               "id": 1654559129940,
-              "value": false
+              "value": true
             }
           ]
         }

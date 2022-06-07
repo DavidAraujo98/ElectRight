@@ -12,8 +12,6 @@ function App() {
     { name: "Home", path: "/" },
     { name: "Editor", path: "/editor" },
     { name: "Profile", path: "/profile" },
-    { name: "Results", path: "/results" },
-
   ]
 
   return (
@@ -28,7 +26,7 @@ function App() {
             <Route path="/results" element={<Results />} />
             */}
             <Route path="/editor" element={<Editor/>} />
-            <Route path="/" element={<Home email={ 'joeDoe@gmail.com'}/>} />
+            <Route path="/" element={<Home/>} />
             <Route path="/results" element={<Results />} />
             <Route path="/ballot" element={<Ballot />} />
             <Route path="/results" element={<Results />} />

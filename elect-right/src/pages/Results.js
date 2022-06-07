@@ -1,6 +1,5 @@
 import Graphic from "../components/Graphic";
 import React from "react";
-import ButtonUser from "../components/ButtonUser";
 import {useState} from "react";
 
 const Results = () => { // {users, elect}
@@ -36,9 +35,6 @@ const Results = () => { // {users, elect}
                 </div>
                 <div>
                     <h4>Votes</h4>
-                    {users.map((user) =>(
-                        <ButtonUser user={user} />
-                    ))}
                 </div>
             </div>
         </div>

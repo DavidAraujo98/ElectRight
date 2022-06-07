@@ -78,7 +78,7 @@ body {
   background-color: #E91D6330 !important;
 }
 
-.area-pink:hover{
+.btn.area-pink:hover{
   background-color: #E91D6310 !important;
 }
 
@@ -87,7 +87,7 @@ body {
   background-color: #0090AC30 !important;
 }
 
-.area-green:hover{
+.btn.area-green:hover{
   background-color: #0090AC10 !important;
 }
 
