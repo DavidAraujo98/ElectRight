@@ -7,7 +7,7 @@ const ProposalVoting = ({ proposals, castVote, votes }) => {
     const handleChange = (id, e) => {
         var temp = cloneDeep(votes);
         temp = temp.filter((props) => 
-            props.id != id
+            props.id !== id
         )
         temp = temp.concat({ id: id, value: e.target.checked });
         castVote(temp);
