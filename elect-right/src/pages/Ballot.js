@@ -14,13 +14,13 @@ const Ballot = () => {
         voters: [],
     });
     const [votes, castVote] = useState([]);
-    const [election_url, setElectionUrl] = useState(
-        "http://localhost:5000/election/"
-    );
+    const [idb, setExtension] = useState("");
+    var election_url = "http://localhost:5000/election/";
     var profile_url = "http://localhost:5000/profile/";
 
     useEffect(() => {
         var idb = new URLSearchParams(window.location.search).get("idb");
+        setExtension(idb);
         fetch(profile_url)
             .then((res) => {
                 return res.json()
@@ -47,7 +47,6 @@ const Ballot = () => {
                         })
                         castVote(temp);
                         setElection(data);
-                        setElectionUrl(election_url + data.id);
                     });
             })
         
@@ -59,14 +58,14 @@ const Ballot = () => {
         me[0].votes = votes
         temp.voters = temp.voters.filter((voter) => voter.id != personalId).concat(me[0]);
         setElection(temp);
-        fetch(election_url, {
-            method: method,
+        fetch(election_url + idb, {
+            method: 'PUT',
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(temp),
         }).then((data) => {
-            console.log("Ballot added");
+            window.location.replace("/results?idb=" + idb);
         });
     }
 

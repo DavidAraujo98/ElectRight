@@ -29,6 +29,7 @@ function App() {
             <Route path="/" element={<Home email={ 'joeDoe@gmail.com'}/>} />
             <Route path="/results" element={<Results />} />
             <Route path="/ballot" element={<Ballot />} />
+            <Route path="/results" element={<Results />} />
           </Routes>
         </div>
       </div>

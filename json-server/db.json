@@ -36,7 +36,17 @@
         },
         {
           "id": 1234,
-          "name": "John Doe"
+          "name": "John Doe",
+          "votes": [
+            {
+              "id": 1654559129939,
+              "value": false
+            },
+            {
+              "id": 1654559129940,
+              "value": false
+            }
+          ]
         }
       ]
     }
