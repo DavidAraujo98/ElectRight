@@ -2,8 +2,6 @@ import React, {useState} from 'react';
 import {Doughnut} from 'react-chartjs-2';
 import {Chart, ArcElement} from 'chart.js'
 
-import results from "../pages/Results"; // npm install react-chartjs-2
-
 Chart.register(ArcElement);
 const Graphic = (props) => {
 
