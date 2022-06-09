@@ -6,7 +6,6 @@ import Editor from "./pages/Editor";
 import Ballot from "./pages/Ballot";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Results from "./pages/Results";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
     const links = [

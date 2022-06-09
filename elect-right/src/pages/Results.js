@@ -3,6 +3,7 @@ import React from "react";
 import {useState} from "react";
 import UserToast from "../components/UserToast";
 import {Col, Container, Row} from "react-bootstrap";
+import {useNavigate} from "react-router-dom";
 
 const Results = () => { // elect
 
@@ -21,6 +22,12 @@ const Results = () => { // elect
         }
     );
 
+    let navigate = useNavigate();
+    const routeChange = (userid) =>{
+        let path = '/profile?=' + userid;
+        navigate(path);
+    }
+
 
     const [voters] = useState(elect.voters.filter(voter => (voter.votes !== undefined)));
     const [proposals] = useState(elect.proposals);
@@ -28,7 +35,7 @@ const Results = () => { // elect
 
     return (
         <div className="results">
-            <div>
+            <div align='left'>
                 <h2>{elect.title}</h2>
                 <h3>Session:{elect.id}</h3>
             </div>
@@ -47,7 +54,7 @@ const Results = () => { // elect
                     <Col>
                         <h4>Votes</h4>
                         {elect.voters.filter(voter => (voter.votes !== undefined)).map((user) => (
-                            <UserToast user={user}/>
+                            <UserToast user={user} addUser={routeChange}/>
                         ))}
                     </Col>
                 </Row>

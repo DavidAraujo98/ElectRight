@@ -13,9 +13,17 @@ const Graphic = (props) => {
     props.users.forEach((voter) => nVotesFalse.push(voter.votes.filter(vote => (vote.id === props.idProp && !vote.value))));
     nVotesFalse = nVotesFalse.filter(result => result.length !== 0)
 
+  /*  let nVotesWhite = []
+    props.users.forEach((voter) => nVotesFalse.push(voter.votes.filter(vote => (vote.id === props.idProp && vote.value === undefined))));
+    nVotesFalse = nVotesFalse.filter(result => result.length !== 0) */
+
     let nVotes = []
     props.users.forEach((voter) => nVotes.push(voter.votes.filter((vote) => vote.id === props.idProp)));
     nVotes = nVotes.filter(result => result.length !== 0)
+
+    let PercAccept = nVotesTrue.length*100/nVotes.length;
+    let PercDeclined = nVotesFalse.length*100/nVotes.length;
+//    let PercWhite = nVotesWhite.length*100/nVotes.length;
 
     const data = {
         id: 160,
@@ -27,14 +35,14 @@ const Graphic = (props) => {
                 title: {
                     text: "Customer Satisfaction"
                 },
-                data: [(nVotesTrue.length*100/nVotes.length) , (nVotesFalse.length*100/nVotes.length)],
+                data: [ PercAccept, PercDeclined],
                 backgroundColor: [
-                    'rgba(54, 162, 235, 0.5)',
-                    'rgba(54, 162, 235, 0.2)',
+                    'rgb(0,144,172)',
+                    'rgb(233,29,99)',
                 ],
                 borderColor: [
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(54, 162, 235, 1)',
+                    'rgb(0,144,172)',
+                    'rgb(233,29,99)',
                 ],
                 borderWidth: 1,
             },
@@ -44,7 +52,7 @@ const Graphic = (props) => {
     return (
         <div>
             <Doughnut data={data}/>
-            <p></p>
+            <p>{PercAccept} %</p>
         </div>
     );
 }
