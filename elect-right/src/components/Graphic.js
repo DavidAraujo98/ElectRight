@@ -19,7 +19,6 @@ const Graphic = (props) => {
     props.users.forEach((voter) => nVotes.push(voter.votes.filter((vote) => vote.id === props.idProp)));
     nVotes = nVotes.filter(result => result.length !== 0)
 
-
     const data = {
         id: 160,
         labels: ['Accept', 'Declined'],
@@ -47,7 +46,7 @@ const Graphic = (props) => {
     return (
         <div>
             <Doughnut data={data}/>
-
+            <p></p>
         </div>
     );
 }
