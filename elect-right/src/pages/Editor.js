@@ -107,12 +107,12 @@ const Editor = () => {
             },
             body: JSON.stringify(temp),
         }).then((data) => {
-            console.log("Ballot added");
+            window.location.replace("/results?idb=" + temp.id);
         });
     };
 
     return (
-        <div style={centerBody}>
+        <div className="editor" style={centerBody}>
             <div>
                 <input
                     value={election.title}
@@ -179,7 +179,11 @@ const Editor = () => {
             </div>
             <div className="d-grid gap-2 d-md-block fixed-bottom position-static my-5">
                 {election && election.proposals.length > 0 && friends && (
-                    <VotersModal addVoters={addVoters} voters={election.voters} friends={friends} />
+                    <VotersModal
+                        addVoters={addVoters}
+                        voters={election.voters}
+                        friends={friends}
+                    />
                 )}
             </div>
         </div>

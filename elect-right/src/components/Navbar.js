@@ -26,11 +26,13 @@ const Navbar = ({ username, img_src, links }) => {
                 >
                     <ul className="navbar-nav">
                         {links.map((link) => (
-                            <li className="nav-item">
+                            <li className="nav-item mx-2">
                                 <a
-                                    className={window.location.pathname === link.path
-                                        ? 'nav-link active'
-                                        : 'nav-link'}
+                                    className={
+                                        window.location.pathname === link.path
+                                            ? "nav-link active"
+                                            : "nav-link"
+                                    }
                                     href={link.path}
                                 >
                                     {link.name}
@@ -39,14 +41,16 @@ const Navbar = ({ username, img_src, links }) => {
                         ))}
                     </ul>
                 </div>
-                <h5 className="mx-2">{username}</h5>
-                <img
-                    width="30"
-                    height="30"
-                    className="rounded-circle"
-                    src={img_src}
-                    alt="user"
-                ></img>
+                <div className="d-flex flex-row">
+                    <h5 className="mx-2">{username}</h5>
+                    <img
+                        width="30"
+                        height="30"
+                        className="rounded-circle"
+                        src={img_src}
+                        alt="user"
+                    ></img>
+                </div>
             </div>
         </nav>
     );

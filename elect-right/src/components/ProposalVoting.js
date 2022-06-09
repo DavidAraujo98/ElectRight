@@ -1,15 +1,11 @@
 import "../css/ProposalList.css";
-import { useState } from "react";
 import cloneDeep from "lodash/cloneDeep";
 
 const ProposalVoting = ({ proposals, castVote, votes }) => {
-    
-    const handleChange = (id, e) => {
+    const handleChange = (id, val) => {
         var temp = cloneDeep(votes);
-        temp = temp.filter((props) => 
-            props.id !== id
-        )
-        temp = temp.concat({ id: id, value: e.target.checked });
+        temp = temp.filter((props) => props.id !== id);
+        temp = temp.concat({ id: id, value: parseInt(val) });
         castVote(temp);
     };
 
@@ -54,20 +50,65 @@ const ProposalVoting = ({ proposals, castVote, votes }) => {
                                     >
                                         {proposal.new_}
                                     </span>
-                                    <div className="m-auto mt-3 text-end">
-                                        <input
-                                            className="form-check-input align-middle"
-                                            type="checkbox"
-                                            value=""
-                                            id="flexCheckDefault"
-                                            onChange={(e) => handleChange(proposal.id, e)}
-                                        />
-                                        <label
-                                            className="form-check-label fs-5 m-auto mx-1 align-middle"
-                                            htmlFor="flexCheckDefault"
-                                        >
-                                            Approve
-                                        </label>
+                                    <div
+                                        className="btn-group d-flex flex-md-row flex-column justify-content-center m-auto mt-3"
+                                        onChange={(e) =>
+                                            handleChange(
+                                                proposal.id,
+                                                e.target.value
+                                            )
+                                        }
+                                    >
+                                        <div className="m-2 d-flex justify-content-center align-items-center">
+                                            <input
+                                                type="radio"
+                                                className="btn-check"
+                                                name="options"
+                                                id={proposal.id + "option1"}
+                                                autocomplete="off"
+                                                value="1"
+                                            />
+                                            <label
+                                                className="btn btn-right rounded-pill px-4"
+                                                htmlFor={proposal.id + "option1"}
+                                            >
+                                                Approve
+                                            </label>
+                                        </div>
+                                        <div className="m-2 d-flex justify-content-center align-items-center">
+                                            <input
+                                                type="radio"
+                                                className="btn-check"
+                                                name="options"
+                                                id={proposal.id + "option2"}
+                                                autocomplete="off"
+                                                value="-1"
+                                            />
+                                            <label
+                                                className="btn btn-right rounded-pill px-4"
+                                                htmlFor={
+                                                    proposal.id + "option2"
+                                                }
+                                            >
+                                                Decline
+                                            </label>
+                                        </div>
+                                        <div className="m-2 d-flex justify-content-center align-items-center">
+                                            <input
+                                                type="radio"
+                                                className="btn-check"
+                                                name="options"
+                                                id={proposal.id + "option3"}
+                                                autocomplete="off"
+                                                value="0"
+                                            />
+                                            <label
+                                                className="btn btn-right rounded-pill px-4"
+                                                htmlFor={proposal.id + "option3"}
+                                            >
+                                                Abstain
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

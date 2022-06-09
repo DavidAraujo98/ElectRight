@@ -1,7 +1,8 @@
 {
   "profile": {
     "id": 1234,
-    "name": "John Doe"
+    "name": "John Doe",
+    "pic": "./John Doe/user-solid.svg"
   },
   "election": [
     {
@@ -36,17 +37,7 @@
         },
         {
           "id": 1234,
-          "name": "John Doe",
-          "votes": [
-            {
-              "id": 1654559129939,
-              "value": true
-            },
-            {
-              "id": 1654559129940,
-              "value": true
-            }
-          ]
+          "name": "John Doe"
         }
       ]
     }

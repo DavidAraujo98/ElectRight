@@ -40,11 +40,11 @@ const VotersModal = ({ friends, voters, addVoters }) => {
     return (
         <div>
             <button
-                className="btn btn-elect shadow rounded-pill px-4 "
+                className="btn btn-elect shadow rounded-pill px-4"
                 data-bs-toggle="modal"
                 data-bs-target="#exampleModal"
             >
-                Create
+                Add Users
             </button>
             <div
                 className="modal fade"

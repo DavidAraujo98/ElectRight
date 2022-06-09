@@ -43,7 +43,7 @@ const Ballot = () => {
                         }
                         temp = votes
                         data.proposals.forEach((proposal) => {
-                            temp = temp.concat({ id: proposal.id, value: false });
+                            temp = temp.concat({ id: proposal.id, value: 0 });
                         })
                         castVote(temp);
                         setElection(data);
