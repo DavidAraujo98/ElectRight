@@ -52,7 +52,7 @@ const Graphic = (props) => {
     return (
         <div>
             <Doughnut data={data}/>
-            <p>{PercAccept} %</p>
+            <h2>{PercAccept} %</h2>
         </div>
     );
 }
