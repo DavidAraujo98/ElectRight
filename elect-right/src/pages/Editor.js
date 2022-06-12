@@ -14,7 +14,7 @@ const Editor = () => {
         proposals: [],
         voters: [],
     });
-    const [friends, setFriends] = useState(null)
+    const [friends, setFriends] = useState(null);
     const [method, setMethod] = useState("POST");
     const [election_url, setElectionUrl] = useState(
         "http://localhost:5000/election/"
@@ -33,7 +33,6 @@ const Editor = () => {
                     setMethod("PUT");
                     setElectionUrl(election_url + data.id);
                 });
-            
         }
         fetch(friends_url)
             .then((res) => {
@@ -41,7 +40,7 @@ const Editor = () => {
             })
             .then((data) => {
                 setFriends(data);
-            })
+            });
     }, []);
 
     const centerBody = {
@@ -94,7 +93,7 @@ const Editor = () => {
         var temp = cloneDeep(election);
         temp.endDate = e.target.value;
         setElection(temp);
-    }
+    };
 
     const addVoters = (voters) => {
         var temp = cloneDeep(election);
@@ -112,7 +111,10 @@ const Editor = () => {
     };
 
     return (
-        <div className="editor" style={centerBody}>
+        <div
+            className="editor"
+            style={centerBody}
+        >
             <div>
                 <input
                     value={election.title}
@@ -161,10 +163,20 @@ const Editor = () => {
                     className="card btn shadow area-green rounded border-0"
                     onClick={addProposal}
                 >
-                    <span className="my-1">
-                        <i className="fa-solid fa-plus fa-2xl"> </i>
-                    </span>
-                    <h5 className="m-0 mt-1"> Add proposal </h5>
+                    <div className="row flex-xl-row-reverse">
+                        <div className="col m-2">
+                            <span className="my-1">
+                                <i className="fa-solid fa-plus fa-2xl"> </i>
+                            </span>
+                            <h5 className="m-0 mt-1"> Direct alteration proposal </h5>
+                        </div>
+                        <div className="col m-2">
+                            <span className="my-1">
+                                <i className="fa-solid fa-plus fa-2xl"> </i>
+                            </span>
+                            <h5 className="m-0 mt-1"> Multiple choice proposal </h5>
+                        </div>
+                    </div>
                 </div>
             </div>
             {/* File */}
