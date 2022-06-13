@@ -2,7 +2,7 @@ import Graphic from "../components/Graphic";
 import React from "react";
 import {useState, useEffect} from "react";
 import UserToast from "../components/UserToast";
-import {Col, Container, Row} from "react-bootstrap";
+import {Button, Col, Container, Row} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
 import '../css/Results.css';
 
@@ -16,13 +16,11 @@ const Results = () => { // elect
         proposals: [],
         voters: [],
     });
-    const [idb, setExtension] = useState("");
     var election_url = "http://localhost:5000/election/";
     var profile_url = "http://localhost:5000/profile/";
 
     useEffect(() => {
         var idb = new URLSearchParams(window.location.search).get("idb");
-        setExtension(idb);
         fetch(profile_url)
             .then((res) => {
                 return res.json()
@@ -42,6 +40,18 @@ const Results = () => { // elect
 
     }, []);
 
+    let proposals = election.proposals;
+
+    let handleClick = (e, type , id = null) => {
+        if (type === 'all')
+            proposals = election.proposals;
+        else if ((type === 'proposal') && (id !== null))
+            proposals = election.proposals.filter(prop => prop.id === id);
+        else console.log('Something is not right!');
+
+
+    }
+
     let navigate = useNavigate();
     const routeChange = (userid) =>{
         let path = '/profile?=' + userid;
@@ -50,7 +60,7 @@ const Results = () => { // elect
 
 
     let voters = election.voters.filter(voter => (voter.votes !== undefined));
-    let proposals = election.proposals;
+
     console.log(election.voters)
 
     return (
@@ -60,6 +70,14 @@ const Results = () => { // elect
                 <h1>Session:{election.id}</h1>
             </div>
             <h2 >Results</h2>
+                <Row>
+                    <Col><Button onClick={(e) => handleClick(e, "all")}>All</Button></Col>
+                    {proposals.map((proposal) => (
+
+                        <Col><Button onClick={(e) => handleClick(e, "proposal", proposal.id)}>{proposal.title}</Button></Col>
+                    ))}
+                </Row>
+
             {proposals.map((proposal) => (
             <Container>
                 <Row>
