@@ -57,16 +57,41 @@
       "voters": [
       	{
       		"id": 1233241, 
-      		"name": "Leonardo"
+      		"name": "Leonardo",
+      		"votes": [{
+                    "id": "AS23D2", 
+                    "value": -1
+                }]
       	}, {
       		"id": 6367756, 
-      		"name": "Carolina"
+      		"name": "Carolina",
+      		"votes": [{
+                    "id": "AS23D2", 
+                    "value": 1
+                }]
+      		
+      	},
+      	{
+      		"id": 6367156, 
+      		"name": "André",
+      		"votes": [{
+                    "id": "AS23D2", 
+                    "value": 1
+                }]
+      		
       	}, {
                 "id": 9490184, 
                 "name": "Otávio", 
                 "votes": [{
                     "id": "AS23D2", 
-                    "value": true
+                    "value": -1
+                }]
+        },{
+                "id": 13490184, 
+                "name": "Manuela", 
+                "votes": [{
+                    "id": "AS23D2", 
+                    "value": -1
                 }]
         }, {
             	"id": 1233241, 
@@ -74,7 +99,7 @@
             	"votes": [
                    {
             		"id": "AS23D2", 
-            		"value": false
+            		"value": 0
             	    }
             	]
          },
