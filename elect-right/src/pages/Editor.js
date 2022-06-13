@@ -2,7 +2,7 @@ import * as React from "react";
 import cloneDeep from "lodash/cloneDeep";
 import ProposalList from "../components/ProposalList";
 import VotersModal from "../components/VotersModal";
-import { useState, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 import "../css/Editor.css";
 
 const Editor = () => {
@@ -21,6 +21,7 @@ const Editor = () => {
     const [election_url, setElectionUrl] = useState(
         "http://localhost:5000/election/"
     );
+    const fileInputRef = useRef(null);
     const friends_url = "http://localhost:5000/friends/";
     const profile_url = "http://localhost:5000/profile/";
 
@@ -214,13 +215,22 @@ const Editor = () => {
             {/* File */}
             <div
                 className="card btn shadow area-pink rounded border-0 my-5"
-                onClick={addFile}
+                onClick={(event) => {
+                    event.preventDefault();
+                    fileInputRef.current.click();
+                }}
             >
                 <span className="my-1">
                     <i className="fa-solid fa-upload fa-2xl"> </i>
                 </span>
                 <h5 className="m-0 mt-1"> Upload document </h5>
             </div>
+            <input
+                type="file"
+                style={{ display: "none" }}
+                accept="application/pdf"
+                ref={fileInputRef}
+            />
             <div className="d-grid gap-2 d-md-block fixed-bottom position-static my-5">
                 {election && election.proposals.length > 0 && friends && (
                     <VotersModal

@@ -6,6 +6,10 @@
   "election": [
     {
       "id": 1654559110029,
+      "editor":{
+        "id": 123423452345,
+        "name": "John Doe"
+      },
       "title": "Test Election",
       "startDate": "2022-06-07T00:45",
       "endDate": "2022-06-07T00:50",
@@ -42,6 +46,10 @@
     },
     {
       "id": "AS23D1",
+      "editor":{
+        "id": 123423452345,
+        "name": "John Doe"
+      },
       "title": "Children's Play PArk Project",
       "startDate": "2022-06-07T00:45",
       "endDate": "2022-10-07T00:50",
