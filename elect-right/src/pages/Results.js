@@ -59,29 +59,29 @@ const Results = () => { // elect
                 <h1 className='my-2'>{election.title}</h1>
                 <h1>Session:{election.id}</h1>
             </div>
+            <h2 >Results</h2>
+            {proposals.map((proposal) => (
             <Container>
                 <Row>
                     <Col className="text-sm-start mb-2">
                      <div>
-                        <h2 >Results</h2>
-                        {proposals.map((proposal) => (
                             <div>
                                 <h4>{proposal.title}</h4>
                                 <Graphic users={voters} idProp={proposal.id}/>
                             </div>
-                        ))}
                      </div>
                     </Col>
                     <Col className="text-sm-start mb-2">
                         <div>
                         <h2>Votes</h2>
-                        {election.voters.filter(voter => (voter.votes !== undefined)).map((user) => (
-                            <UserToast user={user} addUser={routeChange}/>
-                        ))}
+                        {voters.map((user) => ( user.votes.filter((voter)=> voter.id === proposal.id).map(()=>
+                                <UserToast user={user} addUser={routeChange}/>
+                        )))}
                         </div>
                     </Col>
                 </Row>
             </Container>
+            ))}
         </div>
 
     );

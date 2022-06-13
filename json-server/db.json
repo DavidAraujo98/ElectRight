@@ -50,8 +50,9 @@
       	{
       		"id": "AS23D2", 
       		"title": "New swings", 
-      		"old_": "new", "new_": 
-      		"new new", "images": []
+      		"old_": "new", 
+      		"new_": "new new", 
+      		"images": []
       	}
       ],
       "voters": [
@@ -108,6 +109,167 @@
           "name": "John Doe"
         }
        ]
+    },{
+    	"id": "62A763D9F",
+    	"title":"Contests for the first week",
+    	"startDate":"6/16/2021",
+    	"endDate":"2/11/2022",
+    	"proposals":[
+    	  {
+    		"id": "62A763D9G", 
+      		"title": "Escape Room", 
+      		"old_": "new", 
+      		"new_": "new new", 
+      		"images": []
+      	  },{
+      	  	"id": "62A763D9H", 
+      		"title": "Werewolfe", 
+      		"old_": "new", 
+      		"new_": "new new", 
+      		"images": []
+      	  },{
+      	  	"id": "62A763D9I", 
+      		"title": "STOP", 
+      		"old_": "new", 
+      		"new_": "new new", 
+      		"images": []
+      	},{
+      		"id": "62A763D9J", 
+      		"title": "Cards", 
+      		"old_": "new", 
+      		"new_": "new new", 
+      		"images": []
+      	}],
+    	"voters":[{
+      		"id": 6367156, 
+      		"name": "André",
+      		"votes": [{
+                    "id": "62A763D9G", 
+                    "value": 1
+                },{
+                    "id": "62A763D9H", 
+                    "value": 1
+                },{
+                    "id": "62A763D9I", 
+                    "value": 1
+                },{
+                    "id": "62A763D9J", 
+                    "value": 1
+                }]
+      		
+      	}, {
+                "id": 9490184, 
+                "name": "Otávio", 
+                "votes": [{
+                    "id": "62A763D9G", 
+                    "value": 1
+                },{
+                    "id": "62A763D9H", 
+                    "value": 0
+                },{
+                    "id": "62A763D9I", 
+                    "value": -1
+                },{
+                    "id": "62A763D9J", 
+                    "value": -1
+                }]
+        },{
+                "id": 13490184, 
+                "name": "Manuela", 
+                "votes": [{
+                    "id": "62A763D9G", 
+                    "value": 1
+                },{
+                    "id": "62A763D9H", 
+                    "value": 0
+                },{
+                    "id": "62A763D9I", 
+                    "value": 0
+                }]
+        }, {
+            	"id": 1233241, 
+            	"name": "Urtélia", 
+            	"votes": [
+                   {
+            		"id": "62A763D9G", 
+            		"value": 0
+            	    },{
+                    	"id": "62A763D9H", 
+                    	"value": -1
+                },{
+                    "id": "62A763D9I", 
+                    "value": 1
+                },{
+                    "id": "62A763D9J", 
+                    "value": 0
+                }
+            	]
+         },
+         {
+          	"id": 1234,
+          	"name": "John Doe",
+          	"votes": [{
+                    "id": "62A763D9G", 
+                    "value": -1
+                },{
+                    "id": "62A763D9H", 
+                    "value": -1
+                },{
+                    "id": "62A763D9I", 
+                    "value": -1
+                },{
+                    "id": "62A763D9J", 
+                    "value": -1
+                }]
+        },{
+      		"id": 125,
+      		"name": "Carlos",
+      		"votes": [{
+                    "id": "62A763D9G", 
+                    "value": 0
+                },{
+                    "id": "62A763D9H", 
+                    "value": 1
+                },{
+                    "id": "62A763D9I", 
+                    "value": 1
+                },{
+                    "id": "62A763D9J", 
+                    "value": -1
+                }]
+    	},{
+      		"id": 130,
+      		"name": "Helena",
+      		"votes": [{
+                    "id": "62A763D9G", 
+                    "value": 1
+                },{
+                    "id": "62A763D9H", 
+                    "value": 1
+                },{
+                    "id": "62A763D9I", 
+                    "value": 1
+                },{
+                    "id": "62A763D9J", 
+                    "value": 1
+                }]
+    	},{
+      		"id": 131,
+      		"name": "Inês",
+      		"votes": [{
+                    "id": "62A763D9G", 
+                    "value": 1
+                },{
+                    "id": "62A763D9H", 
+                    "value": 0
+                },{
+                    "id": "62A763D9I", 
+                    "value": -1
+                },{
+                    "id": "62A763D9J", 
+                    "value": -1
+                }]
+    	}]
     }
   ],
   "friends": [
