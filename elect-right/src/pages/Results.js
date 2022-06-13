@@ -8,7 +8,6 @@ import '../css/Results.css';
 
 const Results = () => { // elect
 
-    const [personalId, setPersonalId] = useState(null);
     const [election, setElection] = useState({
         id: new Date().getTime() + 1,
         title: "",
@@ -17,7 +16,6 @@ const Results = () => { // elect
         proposals: [],
         voters: [],
     });
-    const [votes, castVote] = useState([]);
     const [idb, setExtension] = useState("");
     var election_url = "http://localhost:5000/election/";
     var profile_url = "http://localhost:5000/profile/";
@@ -30,7 +28,6 @@ const Results = () => { // elect
                 return res.json()
             })
             .then((data) => {
-                setPersonalId(data.id);
                 return data.id
             })
             .then((id) => {
@@ -39,23 +36,11 @@ const Results = () => { // elect
                         return res.json();
                     })
                     .then((data) => {
-                        var temp = data.voters.filter(
-                            (item) => item.id === id
-                        );
-                        if (temp.length !== 1) {
-                            window.location.replace("/");
-                        }
-                        temp = votes
-                        data.proposals.forEach((proposal) => {
-                            temp = temp.concat({ id: proposal.id, value: 0 });
-                        })
-                        castVote(temp);
                         setElection(data);
                     });
             })
 
     }, []);
-
 
     let navigate = useNavigate();
     const routeChange = (userid) =>{
@@ -64,9 +49,9 @@ const Results = () => { // elect
     }
 
 
-    const [voters] = useState(election.voters.filter(voter => (voter.votes !== undefined)));
-    const [proposals] = useState(election.proposals);
-
+    let voters = election.voters.filter(voter => (voter.votes !== undefined));
+    let proposals = election.proposals;
+    console.log(election.voters)
 
     return (
         <div className="results">
@@ -77,6 +62,7 @@ const Results = () => { // elect
             <Container>
                 <Row>
                     <Col className="text-sm-start mb-2">
+                     <div>
                         <h2 >Results</h2>
                         {proposals.map((proposal) => (
                             <div>
@@ -84,13 +70,15 @@ const Results = () => { // elect
                                 <Graphic users={voters} idProp={proposal.id}/>
                             </div>
                         ))}
-
+                     </div>
                     </Col>
                     <Col className="text-sm-start mb-2">
+                        <div>
                         <h2>Votes</h2>
                         {election.voters.filter(voter => (voter.votes !== undefined)).map((user) => (
                             <UserToast user={user} addUser={routeChange}/>
                         ))}
+                        </div>
                     </Col>
                 </Row>
             </Container>
