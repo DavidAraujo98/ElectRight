@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { isEqual } from "lodash";
 import UserToast from "./UserToast";
+import "../css/ProposalList.css";
 
-const VotersModal = ({ friends, voters, addVoters }) => {
+const VotersModal = ({ friends, voters, addVoters, editor }) => {
     const [voterList, setVoter] = useState(voters);
+    const [editorin, setEditor] = useState(false);
     const [fltr, setFilter] = useState(friends);
 
-    const addUser = (id, active) => {
+    const addUser = (id) => {
         var temp = voterList;
         temp = temp.filter((voter) => voter.id !== id);
         if (temp.length < voterList.length) {
@@ -33,9 +35,18 @@ const VotersModal = ({ friends, voters, addVoters }) => {
             if (isEqual(voter, existing)) {
                 return true;
             }
-        })
-        return false
-    }
+        });
+        return false;
+    };
+
+    const addMyself = () => {
+        if (editorin) {
+            setVoter(voterList.filter((voter) => voter.id !== editor.id));
+        } else {
+            setVoter(voterList.concat(editor));
+        }
+        setEditor(!editorin);
+    };
 
     return (
         <div>
@@ -96,6 +107,22 @@ const VotersModal = ({ friends, voters, addVoters }) => {
                             >
                                 Close
                             </button>
+                            <div className="d-flex justify-content-center align-items-center">
+                                <input
+                                    type="checkbox"
+                                    className="btn-check"
+                                    name="options"
+                                    id="addmyself"
+                                    autocomplete="off"
+                                    onClick={() => addMyself()}
+                                />
+                                <label
+                                    className="btn btn-right rounded-pill px-3"
+                                    htmlFor="addmyself"
+                                >
+                                    Add Myself
+                                </label>
+                            </div>
                             <button
                                 type="button"
                                 className="btn btn-elect rounded-pill"

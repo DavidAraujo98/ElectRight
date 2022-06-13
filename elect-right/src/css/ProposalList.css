@@ -58,3 +58,7 @@ form .highlight-old {
 form .btn .icon:hover {
     color: var(--elect-green);
 }
+
+.btn-check:checked+.btn{
+    opacity: 0.5;
+}

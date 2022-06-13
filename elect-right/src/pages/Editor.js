@@ -8,6 +8,7 @@ import "../css/Editor.css";
 const Editor = () => {
     const [election, setElection] = useState({
         id: new Date().getTime() + 1,
+        editor: {},
         title: "",
         startDate: "",
         endDate: "",
@@ -15,11 +16,13 @@ const Editor = () => {
         voters: [],
     });
     const [friends, setFriends] = useState(null);
+    const [editor, setEditor] = useState(null);
     const [method, setMethod] = useState("POST");
     const [election_url, setElectionUrl] = useState(
         "http://localhost:5000/election/"
     );
     const friends_url = "http://localhost:5000/friends/";
+    const profile_url = "http://localhost:5000/profile/";
 
     useEffect(() => {
         if (new URLSearchParams(window.location.search).get("id") != null) {
@@ -40,6 +43,16 @@ const Editor = () => {
             })
             .then((data) => {
                 setFriends(data);
+            });
+        fetch(profile_url)
+            .then((res) => {
+                return res.json();
+            })
+            .then((data) => {
+                setEditor(data);
+                var temp = cloneDeep(election);
+                temp.editor = data;
+                setElection(temp);
             });
     }, []);
 
@@ -214,6 +227,7 @@ const Editor = () => {
                         addVoters={addVoters}
                         voters={election.voters}
                         friends={friends}
+                        editor={editor}
                     />
                 )}
             </div>
