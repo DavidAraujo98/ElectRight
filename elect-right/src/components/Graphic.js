@@ -1,33 +1,24 @@
 import React, {useState} from 'react';
-import {Doughnut} from 'react-chartjs-2';
+import {Pie, Doughnut} from 'react-chartjs-2';
 import {Chart, ArcElement} from 'chart.js'
 
 Chart.register(ArcElement);
 const Graphic = (props) => {
 
-    let nVotesTrue = []
-    props.users.forEach((voter) => nVotesTrue.push(voter.votes.filter(vote => (vote.id === props.idProp && vote.value === 1))));
-    nVotesTrue = nVotesTrue.filter(result => result.length !== 0)
+    function percVotes(value){
+        let nVotes = []
+        props.users.forEach((voter) => nVotes.push(voter.votes.filter((vote) => vote.id === props.idProp)));
+        nVotes = nVotes.filter(result => result.length !== 0)
 
-    let nVotesFalse = []
-    props.users.forEach((voter) => nVotesFalse.push(voter.votes.filter(vote => (vote.id === props.idProp && vote.value === -1))));
-    nVotesFalse = nVotesFalse.filter(result => result.length !== 0)
-
-   let nVotesWhite = []
-    props.users.forEach((voter) => nVotesWhite.push(voter.votes.filter(vote => (vote.id === props.idProp && vote.value === 0))));
-    nVotesWhite = nVotesWhite.filter(result => result.length !== 0)
-
-    let nVotes = []
-    props.users.forEach((voter) => nVotes.push(voter.votes.filter((vote) => vote.id === props.idProp)));
-    nVotes = nVotes.filter(result => result.length !== 0)
-
-    let PercAccept = nVotesTrue.length*100/nVotes.length;
-    let PercDeclined = nVotesFalse.length*100/nVotes.length;
-    let PercWhite = nVotesWhite.length*100/nVotes.length;
+        let nVotesTrue = []
+        props.users.forEach((voter) => nVotesTrue.push(voter.votes.filter(vote => (vote.id === props.idProp && vote.value === value))));
+        nVotesTrue = nVotesTrue.filter(result => result.length !== 0)
+        return nVotesTrue.length*100/nVotes.length;
+    }
 
     const data = {
         id: 160,
-        labels: ['Accept', 'Declined'],
+        labels: ['Accept', 'Declined', 'Abstention'],
         datasets: [
             {
                 label: 'Progress',
@@ -35,18 +26,13 @@ const Graphic = (props) => {
                 title: {
                     text: "Customer Satisfaction"
                 },
-                data: [PercAccept, PercDeclined, PercWhite],
+                data: [percVotes(1), percVotes(-1), percVotes(0)],
                 backgroundColor: [
                     'rgb(0,144,172)',
                     'rgb(233,29,99)',
                     'rgb(255,205,3)'
                 ],
-                borderColor: [
-                    'rgb(0,144,172)',
-                    'rgb(233,29,99)',
-                    'rgb(255,205,3)'
-                ],
-                borderWidth: 1,
+                hoverOffset: 4
             },
         ],
     };
@@ -54,7 +40,7 @@ const Graphic = (props) => {
     return (
         <div>
             <Doughnut data={data}/>
-            <h2>{PercAccept} %</h2>
+            <h2>{percVotes(1)} %</h2>
         </div>
     );
 }
