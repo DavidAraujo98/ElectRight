@@ -56,7 +56,7 @@ const Editor = () => {
         setElection(temp);
     };
 
-    const addProposal = (e) => {
+    const addDirectProposal = (e) => {
         var proposal = {
             id: new Date().getTime(),
             title: "",
@@ -68,6 +68,21 @@ const Editor = () => {
         temp.proposals = temp.proposals.concat(proposal);
         setElection(temp);
     };
+
+    const addChoiceProposal = (e) => {
+        var proposal = {
+            id: new Date().getTime(),
+            title: "",
+            old_: "",
+            newChoices_: [{ text: "", state: false }],
+            images: [],
+        };
+        var temp = cloneDeep(election);
+        temp.proposals = temp.proposals.concat(proposal);
+        setElection(temp);
+    };
+
+    const addFile = () => {};
 
     const deleteProposal = (id) => {
         var temp = cloneDeep(election);
@@ -111,10 +126,7 @@ const Editor = () => {
     };
 
     return (
-        <div
-            className="editor"
-            style={centerBody}
-        >
+        <div className="editor" style={centerBody}>
             <div>
                 <input
                     value={election.title}
@@ -159,22 +171,29 @@ const Editor = () => {
                         editProposal={editProposal}
                     />
                 )}
-                <div
-                    className="card btn shadow area-green rounded border-0"
-                    onClick={addProposal}
-                >
+                <div className="card rounded border-0">
                     <div className="row flex-xl-row-reverse">
-                        <div className="col m-2">
+                        <div
+                            className="col m-2 btn shadow area-green"
+                            onClick={addDirectProposal}
+                        >
                             <span className="my-1">
                                 <i className="fa-solid fa-plus fa-2xl"> </i>
                             </span>
-                            <h5 className="m-0 mt-1"> Direct alteration proposal </h5>
+                            <h5 className="m-0 mt-1">
+                                Direct alteration proposal
+                            </h5>
                         </div>
-                        <div className="col m-2">
+                        <div
+                            className="col m-2 btn shadow area-green"
+                            onClick={addChoiceProposal}
+                        >
                             <span className="my-1">
                                 <i className="fa-solid fa-plus fa-2xl"> </i>
                             </span>
-                            <h5 className="m-0 mt-1"> Multiple choice proposal </h5>
+                            <h5 className="m-0 mt-1">
+                                Multiple choice proposal
+                            </h5>
                         </div>
                     </div>
                 </div>
@@ -182,7 +201,7 @@ const Editor = () => {
             {/* File */}
             <div
                 className="card btn shadow area-pink rounded border-0 my-5"
-                onClick={addProposal}
+                onClick={addFile}
             >
                 <span className="my-1">
                     <i className="fa-solid fa-upload fa-2xl"> </i>
