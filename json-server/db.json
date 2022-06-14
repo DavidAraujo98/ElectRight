@@ -6,7 +6,7 @@
   "election": [
     {
       "id": 1654559110029,
-      "editor":{
+      "editor": {
         "id": 123423452345,
         "name": "John Doe"
       },
@@ -39,14 +39,14 @@
           "name": "Barbara"
         },
         {
-          "id": 1234,
+          "id": 123423452345,
           "name": "John Doe"
         }
       ]
     },
     {
       "id": "AS23D1",
-      "editor":{
+      "editor": {
         "id": 123423452345,
         "name": "John Doe"
       },
@@ -124,13 +124,17 @@
           ]
         },
         {
-          "id": 1234,
+          "id": 123423452345,
           "name": "John Doe"
         }
       ]
     },
     {
       "id": "62A763D9F",
+      "editor": {
+        "id": 123423452345,
+        "name": "John Doe"
+      },
       "title": "Contests for the first week",
       "startDate": "2022-06-07T00:45",
       "endDate": "2022-06-07T00:54",
@@ -250,28 +254,6 @@
           ]
         },
         {
-          "id": 1234,
-          "name": "John Doe",
-          "votes": [
-            {
-              "id": "62A763D9G",
-              "value": -1
-            },
-            {
-              "id": "62A763D9H",
-              "value": -1
-            },
-            {
-              "id": "62A763D9I",
-              "value": -1
-            },
-            {
-              "id": "62A763D9J",
-              "value": -1
-            }
-          ]
-        },
-        {
           "id": 125,
           "name": "Carlos",
           "votes": [
@@ -334,6 +316,28 @@
             {
               "id": "62A763D9J",
               "value": -1
+            }
+          ]
+        },
+        {
+          "id": 123423452345,
+          "name": "John Doe",
+          "votes": [
+            {
+              "id": "62A763D9G",
+              "value": 1
+            },
+            {
+              "id": "62A763D9H",
+              "value": -1
+            },
+            {
+              "id": "62A763D9I",
+              "value": 1
+            },
+            {
+              "id": "62A763D9J",
+              "value": 1
             }
           ]
         }
