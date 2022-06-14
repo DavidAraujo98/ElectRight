@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import { Doughnut} from 'react-chartjs-2';
-import {Chart, ArcElement} from 'chart.js'
+import {Chart, ArcElement, Tooltip, Legend} from 'chart.js'
 
-Chart.register(ArcElement);
+Chart.register(ArcElement, Tooltip, Legend);
 const Graphic = (props) => {
 
     function percVotes(value){
