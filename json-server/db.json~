@@ -166,6 +166,28 @@
       ],
       "voters": [
         {
+            "id": 123423452345,
+            "name": "John Doe",
+            "votes": [
+                {
+                  "id": "62A763D9G",
+                  "value": -1
+                },
+                {
+                  "id": "62A763D9H",
+                  "value": 0
+                },
+                {
+                  "id": "62A763D9I",
+                  "value": 1
+                },
+                {
+                  "id": "62A763D9J",
+                  "value": 1
+                }
+            ]
+        }
+        {
           "id": 6367156,
           "name": "André",
           "votes": [
@@ -250,6 +272,28 @@
           ]
         },
         {
+          "id": 1234,
+          "name": "John Doe",
+          "votes": [
+            {
+              "id": "62A763D9G",
+              "value": -1
+            },
+            {
+              "id": "62A763D9H",
+              "value": -1
+            },
+            {
+              "id": "62A763D9I",
+              "value": -1
+            },
+            {
+              "id": "62A763D9J",
+              "value": -1
+            }
+          ]
+        },
+        {
           "id": 125,
           "name": "Carlos",
           "votes": [
@@ -312,28 +356,6 @@
             {
               "id": "62A763D9J",
               "value": -1
-            }
-          ]
-        },
-        {
-          "id": 123423452345,
-          "name": "John Doe",
-          "votes": [
-            {
-              "id": "62A763D9G",
-              "value": 1
-            },
-            {
-              "id": "62A763D9H",
-              "value": -1
-            },
-            {
-              "id": "62A763D9I",
-              "value": -1
-            },
-            {
-              "id": "62A763D9J",
-              "value": 0
             }
           ]
         }
