@@ -39,7 +39,7 @@
           "name": "Barbara"
         },
         {
-          "id": 1234,
+          "id": 123423452345,
           "name": "John Doe"
         }
       ]
@@ -124,13 +124,17 @@
           ]
         },
         {
-          "id": 1234,
+          "id": 123423452345,
           "name": "John Doe"
         }
       ]
     },
     {
       "id": "62A763D9F",
+      "editor": {
+        "id": 123423452345,
+        "name": "John Doe"
+      },
       "title": "Contests for the first week",
       "startDate": "2022-06-07T00:45",
       "endDate": "2022-06-07T00:54",
@@ -321,7 +325,7 @@
           "votes": [
             {
               "id": "62A763D9G",
-              "value": 1
+              "value": -1
             },
             {
               "id": "62A763D9H",

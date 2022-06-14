@@ -1,7 +1,7 @@
 import Graphic from "../components/Graphic";
 import React from "react";
 import {useState, useEffect} from "react";
-import UserToast from "../components/UserToast";
+// import UserToast from "../components/UserToast";
 import {Button, Col, Container, Row} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
 import '../css/Results.css';
@@ -52,12 +52,20 @@ const Results = () => { // elect
         else console.log('Something is not right!');
     }
 
-    let navigate = useNavigate();
-    const routeChange = (userid) =>{
-        let path = '/profile?=' + userid;
-        navigate(path);
-    }
+        let navigate = useNavigate();
+    /*     const routeChange = (userid) =>{
+            let path = '/profile?=' + userid;
+            navigate(path);
+        }
 
+
+       function nVotes(id= 0){
+            let temp = []
+            voters.users.forEach((voter) => temp.push(voter.votes.filter((vote) => vote.id === id)));
+            temp = temp.filter(result => result.length !== 0);
+            return temp.length;
+        }
+    */
 
     let voters = election.voters.filter(voter => (voter.votes !== undefined));
 
@@ -83,27 +91,35 @@ const Results = () => { // elect
                 <div>
             <Container  class='row-6 rounded-4 ms-sm-5 m-auto p-3'>
                 <Row>
-                    <Col className="text-sm-start mb-2">
-                     <div class='col-10 rounded-4 ms-sm-5 m-auto p-3'>
+                     <div>
                             <div>
                                 <h4>{proposal.title}</h4>
                                 <Graphic users={voters} idProp={proposal.id}/>
                             </div>
                      </div>
-                    </Col>
+                        {/*</Col>
                     <Col className="text-sm-start mb-2">
                         <div>
-                        <h2>Votes</h2>
+                            <Row>
+                                <Col>
+                                    <h2>Votes</h2>
+                                </Col>
+                                <Col>
+                                    <h2>Número de votos: {}</h2>
+                                </Col>
+                            </Row>
+
                         {voters.map((user) => ( user.votes.filter((voter)=> voter.id === proposal.id).map(()=>
-                                <UserToast user={user} addUser={routeChange}/>
+                            <UserToast user={user} addUser={routeChange} />
                         )))}
-                        </div>
-                    </Col>
+                        </div> */}
                 </Row>
             </Container>
                 <p></p>
                 </div>
             ))}
+
+            <Button onClick={() => navigate('/')}>Return Home</Button>
         </div>
 
     );
