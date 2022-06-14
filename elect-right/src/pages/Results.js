@@ -38,18 +38,18 @@ const Results = () => { // elect
                     });
             })
 
-    }, []);
+    });
 
-    let proposals = election.proposals;
+    const [proposals, setProposals] = useState(election.proposals);
+    let prop = election.proposals;
 
-    let handleClick = (e, type , id = null) => {
+
+    const handleClick = (type = 'all', id = null) => {
         if (type === 'all')
-            proposals = election.proposals;
+            setProposals(election.proposals);
         else if ((type === 'proposal') && (id !== null))
-            proposals = election.proposals.filter(prop => prop.id === id);
+            setProposals(election.proposals.filter(prop => prop.id === id));
         else console.log('Something is not right!');
-
-
     }
 
     let navigate = useNavigate();
@@ -61,28 +61,30 @@ const Results = () => { // elect
 
     let voters = election.voters.filter(voter => (voter.votes !== undefined));
 
-    console.log(election.voters)
-
     return (
         <div className="results">
-            <div align='left'>
-                <h1 className='my-2'>{election.title}</h1>
-                <h1>Session:{election.id}</h1>
+            <div className='m-auto p-3' align='left'>
+                <h1 className='my-2 fs-1'>{election.title}</h1>
+                <h3>Session:{election.id}</h3>
             </div>
             <h2 >Results</h2>
-                <Row>
-                    <Col><Button onClick={(e) => handleClick(e, "all")}>All</Button></Col>
-                    {proposals.map((proposal) => (
-
-                        <Col><Button onClick={(e) => handleClick(e, "proposal", proposal.id)}>{proposal.title}</Button></Col>
-                    ))}
-                </Row>
+            <div class='col-6'>
+                <table className="table">
+                    <tr>
+                        <th className="btn btn-default" onClick={() => handleClick( 'all')}>All</th>
+                        {prop.map((proposal) => (
+                            <th className='btn' onClick={() => handleClick("proposal", proposal.id)}>{proposal.title}</th>
+                        ))}
+                    </tr>
+                </table>
+            </div>
 
             {proposals.map((proposal) => (
-            <Container>
+                <div>
+            <Container  class='row-6 rounded-4 ms-sm-5 m-auto p-3'>
                 <Row>
                     <Col className="text-sm-start mb-2">
-                     <div>
+                     <div class='col-10 rounded-4 ms-sm-5 m-auto p-3'>
                             <div>
                                 <h4>{proposal.title}</h4>
                                 <Graphic users={voters} idProp={proposal.id}/>
@@ -99,6 +101,8 @@ const Results = () => { // elect
                     </Col>
                 </Row>
             </Container>
+                <p></p>
+                </div>
             ))}
         </div>
 

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Pie, Doughnut} from 'react-chartjs-2';
+import { Doughnut} from 'react-chartjs-2';
 import {Chart, ArcElement} from 'chart.js'
 
 Chart.register(ArcElement);
@@ -35,12 +35,23 @@ const Graphic = (props) => {
                 hoverOffset: 4
             },
         ],
+
     };
 
     return (
         <div>
-            <Doughnut data={data}/>
-            <h2>{percVotes(1)} %</h2>
+            <Doughnut data={data} options={{
+                legend: { display: true, position: "right" },
+
+                datalabels: {
+                    display: true,
+                    color:  'rgb(9,9,8)',
+                },
+                tooltips: {
+                    backgroundColor: "#5a6e7f",
+                },
+            }}/>
+            <h2 class='display-Perc'>Percentage Accept: {Math.round(percVotes(1))} %</h2>
         </div>
     );
 }
