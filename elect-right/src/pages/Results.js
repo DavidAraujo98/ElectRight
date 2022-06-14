@@ -16,6 +16,8 @@ const Results = () => { // elect
         proposals: [],
         voters: [],
     });
+    const [proposals, setProposals] = useState([]);
+
     var election_url = "http://localhost:5000/election/";
     var profile_url = "http://localhost:5000/profile/";
 
@@ -38,9 +40,14 @@ const Results = () => { // elect
                     });
             })
 
-    });
+    }, []);
 
-    const [proposals, setProposals] = useState(election.proposals);
+    useEffect(() => {
+        setProposals(election.proposals);
+    },[election]);
+
+
+
     let prop = election.proposals;
 
 
@@ -53,19 +60,6 @@ const Results = () => { // elect
     }
 
         let navigate = useNavigate();
-    /*     const routeChange = (userid) =>{
-            let path = '/profile?=' + userid;
-            navigate(path);
-        }
-
-
-       function nVotes(id= 0){
-            let temp = []
-            voters.users.forEach((voter) => temp.push(voter.votes.filter((vote) => vote.id === id)));
-            temp = temp.filter(result => result.length !== 0);
-            return temp.length;
-        }
-    */
 
     let voters = election.voters.filter(voter => (voter.votes !== undefined));
 
@@ -97,22 +91,6 @@ const Results = () => { // elect
                                 <Graphic users={voters} idProp={proposal.id}/>
                             </div>
                      </div>
-                        {/*</Col>
-                    <Col className="text-sm-start mb-2">
-                        <div>
-                            <Row>
-                                <Col>
-                                    <h2>Votes</h2>
-                                </Col>
-                                <Col>
-                                    <h2>Número de votos: {}</h2>
-                                </Col>
-                            </Row>
-
-                        {voters.map((user) => ( user.votes.filter((voter)=> voter.id === proposal.id).map(()=>
-                            <UserToast user={user} addUser={routeChange} />
-                        )))}
-                        </div> */}
                 </Row>
             </Container>
                 <p></p>
