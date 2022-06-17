@@ -44,8 +44,7 @@ const Results = () => { // elect
 
     useEffect(() => {
         setProposals(election.proposals);
-    },[election]);
-
+    }, [election]);
 
 
     let prop = election.proposals;
@@ -59,7 +58,7 @@ const Results = () => { // elect
         else console.log('Something is not right!');
     }
 
-        let navigate = useNavigate();
+    let navigate = useNavigate();
 
     let voters = election.voters.filter(voter => (voter.votes !== undefined));
 
@@ -67,15 +66,16 @@ const Results = () => { // elect
         <div className="results">
             <div className='m-auto p-3' align='left'>
                 <h1 className='my-2 fs-1'>{election.title}</h1>
-                <h3>Session:{election.id}</h3>
+                <h3><span style={{ color: 'rgb(110,110,110)' }}>Session:</span><span className="pink">{election.id}</span></h3>
             </div>
-            <h2 >Results</h2>
+            <h2>Results</h2>
             <div class='col-6'>
                 <table className="table">
                     <tr>
-                        <th className="btn btn-default" onClick={() => handleClick( 'all')}>All</th>
+                        <th className="btn btn-default" onClick={() => handleClick('all')}>All</th>
                         {prop.map((proposal) => (
-                            <th className='btn' onClick={() => handleClick("proposal", proposal.id)}>{proposal.title}</th>
+                            <th className='btn'
+                                onClick={() => handleClick("proposal", proposal.id)}>{proposal.title}</th>
                         ))}
                     </tr>
                 </table>
@@ -83,17 +83,17 @@ const Results = () => { // elect
 
             {proposals.map((proposal) => (
                 <div>
-            <Container  class='row-6 rounded-4 ms-sm-5 m-auto p-3'>
-                <Row>
-                     <div>
+                    <Container class='row-6 rounded-4 ms-sm-5 m-auto p-3'>
+                        <Row>
                             <div>
-                                <h4>{proposal.title}</h4>
-                                <Graphic users={voters} idProp={proposal.id}/>
+                                <div>
+                                    <h4>{proposal.title}</h4>
+                                    <Graphic users={voters} idProp={proposal.id}/>
+                                </div>
                             </div>
-                     </div>
-                </Row>
-            </Container>
-                <p></p>
+                        </Row>
+                    </Container>
+                    <p></p>
                 </div>
             ))}
 
