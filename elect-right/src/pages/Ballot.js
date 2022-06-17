@@ -69,6 +69,10 @@ const Ballot = () => {
         });
     }
 
+    useEffect(() => {
+        setElection(election);
+    }, []);
+
     const centerBody = {
         marginTop: "10px",
         marginInline: "25vw",
