@@ -22,7 +22,7 @@ const Editor = () => {
         "http://localhost:5000/election/"
     );
     const fileInputRef = useRef(null);
-    const friends_url = "http://localhost:5000/friends/";
+    //const friends_url = "http://localhost:5000/friends/";
     const profile_url = "http://localhost:5000/profile/";
 
     useEffect(() => {
@@ -38,22 +38,17 @@ const Editor = () => {
                     setElectionUrl(election_url + data.id);
                 });
         }
-        fetch(friends_url)
+
+        fetch(profile_url + parseInt(localStorage.getItem('ProfileId')))
             .then((res) => {
                 return res.json();
             })
             .then((data) => {
-                setFriends(data);
-            });
-        fetch(profile_url)
-            .then((res) => {
-                return res.json();
-            })
-            .then((data) => {
-                setEditor(data);
+                setEditor({ 'id' : data.id, 'name' : data.name});
                 var temp = cloneDeep(election);
-                temp.editor = data;
+                temp.editor = {'id' : data.id, 'name' : data.name};
                 setElection(temp);
+                setFriends(data.friends)
             });
     }, []);
 

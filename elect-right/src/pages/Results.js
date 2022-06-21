@@ -1,7 +1,6 @@
 import Graphic from "../components/Graphic";
 import React from "react";
 import {useState, useEffect} from "react";
-// import UserToast from "../components/UserToast";
 import {Button, Col, Container, Row} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
 import '../css/Results.css';
@@ -23,22 +22,13 @@ const Results = () => { // elect
 
     useEffect(() => {
         var idb = new URLSearchParams(window.location.search).get("idb");
-        fetch(profile_url)
-            .then((res) => {
-                return res.json()
-            })
-            .then((data) => {
-                return data.id
-            })
-            .then((id) => {
-                fetch(election_url + idb)
+        fetch(election_url + idb)
                     .then((res) => {
                         return res.json();
                     })
                     .then((data) => {
                         setElection(data);
                     });
-            })
 
     }, []);
 

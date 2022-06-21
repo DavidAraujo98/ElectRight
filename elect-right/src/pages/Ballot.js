@@ -16,40 +16,29 @@ const Ballot = () => {
     const [votes, castVote] = useState([]);
     const [idb, setExtension] = useState("");
     var election_url = "http://localhost:5000/election/";
-    var profile_url = "http://localhost:5000/profile/";
 
     useEffect(() => {
         var idb = new URLSearchParams(window.location.search).get("idb");
         setExtension(idb);
-        fetch(profile_url)
+        fetch(election_url + idb)
             .then((res) => {
-                return res.json()
+                return res.json();
             })
             .then((data) => {
-                setPersonalId(data.id);
-                return data.id
-            })
-            .then((id) => {
-                fetch(election_url + idb)
-                    .then((res) => {
-                        return res.json();
-                    })
-                    .then((data) => {
-                        var temp = data.voters.filter(
-                            (item) => item.id == id
-                        );
-                        if (temp.length != 1) {
-                            window.location.replace("/");
-                        }
-                        temp = votes
-                        data.proposals.forEach((proposal) => {
-                            temp = temp.concat({ id: proposal.id, value: 0 });
-                        })
-                        castVote(temp);
-                        setElection(data);
-                    });
-            })
-        
+                var temp = data.voters.filter(
+                    (item) => parseInt(item.id) == parseInt(localStorage.getItem('ProfileId'))
+                );
+                if (temp.length != 1) {
+                    window.location.replace("/");
+                }
+                temp = votes
+                data.proposals.forEach((proposal) => {
+                    temp = temp.concat({id: proposal.id, value: 0});
+                })
+                castVote(temp);
+                setElection(data);
+                setPersonalId(localStorage.getItem('ProfileId'))
+            });
     }, []);
 
     const submitBallot = () => {
@@ -106,5 +95,5 @@ const Ballot = () => {
         </div>
     );
 }
- 
+
 export default Ballot;
