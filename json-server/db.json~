@@ -1,148 +1,8 @@
 {
-  "profile": [
-    {
-      "id": 123423452345,
-      "name": "John Doe",
-      "image": "",
-      "friends": [
-        {
-          "id": 123,
-          "name": "Ana"
-        },
-        {
-          "id": 132,
-          "name": "Antonio"
-        },
-        {
-          "id": 124,
-          "name": "Barbara"
-        },
-        {
-          "id": 125,
-          "name": "Carlos"
-        },
-        {
-          "id": 129,
-          "name": "Gustavo"
-        },
-        {
-          "id": 130,
-          "name": "Helena"
-        },
-        {
-          "id": 131,
-          "name": "Inês"
-        }
-      ]
-    },
-    {
-      "id": 132,
-      "name": "Antonio",
-      "image": "",
-      "friends": [
-        {
-          "id": 123423452345,
-          "name": "John Doe"
-        }
-      ]
-    },
-    {
-      "id": 125,
-      "name": "Carlos",
-      "image": "",
-      "friends": [
-        {
-          "id": 123423452345,
-          "name": "John Doe"
-        }
-      ]
-    },
-    {
-      "id": 123,
-      "name": "Ana",
-      "image": "",
-      "friends": [
-        {
-          "id": 123423452345,
-          "name": "John Doe"
-        }
-      ]
-    },
-    {
-      "id": 124,
-      "name": "Barbara",
-      "image": "",
-      "friends": [
-        {
-          "id": 123423452345,
-          "name": "John Doe"
-        }
-      ]
-    },
-    {
-      "id": 131,
-      "name": "Inês",
-      "image": "",
-      "friends": [
-        {
-          "id": 123423452345,
-          "name": "John Doe"
-        }
-      ]
-    },
-    {
-      "id": 129,
-      "name": "Gustavo",
-      "image": "",
-      "friends": [
-        {
-          "id": 123423452345,
-          "name": "John Doe"
-        }
-      ]
-    },
-    {
-      "id": 130,
-      "name": "Helena",
-      "image": "",
-      "friends": [
-        {
-          "id": 123423452345,
-          "name": "John Doe"
-        }
-      ]
-    },
-    {
-      "id": 1233241,
-      "name": "Leonardo",
-      "image": ""
-    },
-    {
-      "id": 6367756,
-      "name": "Carolina",
-      "image": ""
-    },
-    {
-      "id": 6367156,
-      "name": "André",
-      "image": ""
-    },
-    {
-      "id": 9490184,
-      "name": "Otávio",
-      "image": ""
-    },
-    {
-      "id": 13490184,
-      "name": "Manuela",
-      "image": ""
-    },
-    {
-      "id": 1233241,
-      "name": "Urtélia",
-      "image": ""
-    }
-  ],
+  "profile": {
+    "id": 123423452345,
+    "name": "John Doe"
+  },
   "election": [
     {
       "id": 1654559110029,
@@ -159,14 +19,14 @@
           "title": "Hello World",
           "old_": "What a nice day",
           "new_": "What a nice evening",
-          "images": ""
+          "images": []
         },
         {
           "id": 1654559129940,
           "title": "Goodbye World",
           "old_": "Sleep well",
           "new_": "Have good dreams",
-          "images": ""
+          "images": []
         }
       ],
       "voters": [
@@ -179,7 +39,7 @@
           "name": "Barbara"
         },
         {
-          "id": 123423452345,
+          "id": 1234,
           "name": "John Doe"
         }
       ]
@@ -199,7 +59,7 @@
           "title": "New swings",
           "old_": "new",
           "new_": "new new",
-          "images": ""
+          "images": []
         }
       ],
       "voters": [
@@ -264,17 +124,13 @@
           ]
         },
         {
-          "id": 123423452345,
+          "id": 1234,
           "name": "John Doe"
         }
       ]
     },
     {
       "id": "62A763D9F",
-      "editor": {
-        "id": 123423452345,
-        "name": "John Doe"
-      },
       "title": "Contests for the first week",
       "startDate": "2022-06-07T00:45",
       "endDate": "2022-06-07T00:54",
@@ -284,31 +140,53 @@
           "title": "Escape Room",
           "old_": "new",
           "new_": "new new",
-          "images": ""
+          "images": []
         },
         {
           "id": "62A763D9H",
           "title": "Werewolfe",
           "old_": "new",
           "new_": "new new",
-          "images": ""
+          "images": []
         },
         {
           "id": "62A763D9I",
           "title": "STOP",
           "old_": "new",
           "new_": "new new",
-          "images": ""
+          "images": []
         },
         {
           "id": "62A763D9J",
           "title": "Cards",
           "old_": "new",
           "new_": "new new",
-          "images": ""
+          "images": []
         }
       ],
       "voters": [
+        {
+            "id": 123423452345,
+            "name": "John Doe",
+            "votes": [
+                {
+                  "id": "62A763D9G",
+                  "value": -1
+                },
+                {
+                  "id": "62A763D9H",
+                  "value": 0
+                },
+                {
+                  "id": "62A763D9I",
+                  "value": 1
+                },
+                {
+                  "id": "62A763D9J",
+                  "value": 1
+                }
+            ]
+        }
         {
           "id": 6367156,
           "name": "André",
@@ -328,6 +206,28 @@
             {
               "id": "62A763D9J",
               "value": 1
+            }
+          ]
+        },
+        {
+          "id": 9490184,
+          "name": "Otávio",
+          "votes": [
+            {
+              "id": "62A763D9G",
+              "value": 1
+            },
+            {
+              "id": "62A763D9H",
+              "value": 0
+            },
+            {
+              "id": "62A763D9I",
+              "value": -1
+            },
+            {
+              "id": "62A763D9J",
+              "value": -1
             }
           ]
         },
@@ -368,6 +268,28 @@
             {
               "id": "62A763D9J",
               "value": 0
+            }
+          ]
+        },
+        {
+          "id": 1234,
+          "name": "John Doe",
+          "votes": [
+            {
+              "id": "62A763D9G",
+              "value": -1
+            },
+            {
+              "id": "62A763D9H",
+              "value": -1
+            },
+            {
+              "id": "62A763D9I",
+              "value": -1
+            },
+            {
+              "id": "62A763D9J",
+              "value": -1
             }
           ]
         },
@@ -436,50 +358,6 @@
               "value": -1
             }
           ]
-        },
-        {
-          "id": 9490184,
-          "name": "Otávio",
-          "votes": [
-            {
-              "id": "62A763D9G",
-              "value": 1
-            },
-            {
-              "id": "62A763D9H",
-              "value": -1
-            },
-            {
-              "id": "62A763D9I",
-              "value": 0
-            },
-            {
-              "id": "62A763D9J",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "id": 123423452345,
-          "name": "John Doe",
-          "votes": [
-            {
-              "id": "62A763D9G",
-              "value": 1
-            },
-            {
-              "id": "62A763D9H",
-              "value": -1
-            },
-            {
-              "id": "62A763D9I",
-              "value": 1
-            },
-            {
-              "id": "62A763D9J",
-              "value": 1
-            }
-          ]
         }
       ]
     },
@@ -498,7 +376,7 @@
           "title": "Proposal 1",
           "old_": "a",
           "new_": "b",
-          "images": ""
+          "images": []
         }
       ],
       "voters": [
@@ -525,96 +403,48 @@
           ]
         }
       ]
+    }
+  ],
+  "friends": [
+    {
+      "id": 123,
+      "name": "Ana"
     },
     {
-      "id": 1655833330683,
-      "editor": {
-        "id": 123423452345,
-        "name": "John Doe"
-      },
-      "title": "",
-      "startDate": "",
-      "endDate": "",
-      "proposals": [
-        {
-          "id": 1655833505864,
-          "title": "jldnfljadb",
-          "old_": "njldbsw",
-          "newChoices_": [
-            {
-              "text": "",
-              "state": false
-            }
-          ],
-          "images": [],
-          "new_": "dnwçbdnf"
-        }
-      ],
-      "voters": [
-        {
-          "id": 132,
-          "name": "Antonio"
-        },
-        {
-          "id": 129,
-          "name": "Gustavo"
-        },
-        {
-          "id": 123423452345,
-          "name": "John Doe",
-          "votes": [
-            {
-              "id": 1655833505864,
-              "value": 1
-            }
-          ]
-        }
-      ]
+      "id": 132,
+      "name": "Antonio"
     },
     {
-      "id": 1655833569835,
-      "editor": {
-        "id": 123423452345,
-        "name": "John Doe"
-      },
-      "title": "",
-      "startDate": "",
-      "endDate": "",
-      "proposals": [
-        {
-          "id": 1655833570801,
-          "title": "dekwçfdnb",
-          "old_": "dejanlf",
-          "newChoices_": [
-            {
-              "text": "",
-              "state": false
-            }
-          ],
-          "images": [],
-          "new_": "fknela"
-        }
-      ],
-      "voters": [
-        {
-          "id": 132,
-          "name": "Antonio"
-        },
-        {
-          "id": 129,
-          "name": "Gustavo"
-        },
-        {
-          "id": 123423452345,
-          "name": "John Doe",
-          "votes": [
-            {
-              "id": 1655833570801,
-              "value": -1
-            }
-          ]
-        }
-      ]
+      "id": 124,
+      "name": "Barbara"
+    },
+    {
+      "id": 125,
+      "name": "Carlos"
+    },
+    {
+      "id": 126,
+      "name": "Daniel"
+    },
+    {
+      "id": 127,
+      "name": "Emanuel"
+    },
+    {
+      "id": 128,
+      "name": "Filipa"
+    },
+    {
+      "id": 129,
+      "name": "Gustavo"
+    },
+    {
+      "id": 130,
+      "name": "Helena"
+    },
+    {
+      "id": 131,
+      "name": "Inês"
     }
   ]
 }
